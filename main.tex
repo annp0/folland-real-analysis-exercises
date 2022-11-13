@@ -1,0 +1,34 @@
+\documentclass{article}
+\title{\textbf{Real Analysis (Folland) Exercises}}
+\author{An Nan}
+\usepackage[top=3cm,bottom=3cm,left=2cm, right=2cm,a4paper]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{exercise}{Exercise}
+\renewcommand{\proofname}{\bf Proof}
+\newenvironment{solution}{\begin{proof}[\bf Solution]}{\end{proof}}
+\newcommand{\R}{\mathrm{R}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\exist}{\exists\,}
+\newcommand{\forany}{\forall\,}
+\makeatletter
+\def\@seccntformat#1{%
+  \expandafter\ifx\csname c@#1\endcsname\c@section\else
+  \csname the#1\endcsname\quad
+  \fi}
+\makeatother
+\makeatletter
+\begin{document}
+    \maketitle
+    \tableofcontents
+    \input{ch1-2-17.tex}
+    \input{ch1-18-33.tex}
+    \input{ch2-1-22.tex}
+    \input{ch2-23-44.tex}
+\end{document}

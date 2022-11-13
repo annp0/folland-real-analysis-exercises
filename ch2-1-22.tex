@@ -1,0 +1,186 @@
+\section{Chapter 2: Integration}
+Let the measurable space be $(X,\mathcal{M})$ for Exercise 1-7.
+\subsection*{Exercise 1}
+Let $f:X\to\overline{\mathbb{R}}$ and $Y=f^{-1}(\mathbb{R})$. Then $f$ is measurable iff $f^{-1}(\{\pm\infty\})\in\mathcal{M}$, and $f$ is measurable on $Y$.
+\begin{proof}
+    If $f$ is measurable then $f^{-1}(\{\pm\infty\})\in\mathcal{M}$. Give any borel set $B\in\mathcal{B}_{\overline{\mathbb{R}}}$, $f^{-1}(B)\in\mathcal{M}$. Therefore $f^{-1}(B\cap\mathbb{R})=f^{-1}(B)\cap Y\in\mathcal{M}$, $f$ measurable on $Y$. Conversely, for any borel set $B\in\mathcal{B}_{\overline{\mathbb{R}}}$, $f^{-1}(B)=f^{-1}((B\cap\mathbb{R})\cup(B\cap\{\infty,-\infty\}))\in\mathcal{M}$, $f$ measurable.
+\end{proof}
+\subsection*{Exercise 2}
+Suppose $f,g:X\to\overline{\mathbb{R}}$ are measurable.
+\par (a) $fg$ is measurable (where $0\cdot(\pm\infty)=0$).
+\par (b) Fix $a\in\overline{\mathbb{R}}$ and define $h(x)=a$ if $f(x)=-g(x)=\pm\infty$ and $h(x)=f(x)+g(x)$ otherwise. Then $h$ is measurable.
+\begin{proof}
+    (a) It is easy to see that $(fg)^{-1}(\pm\infty)\in\mathcal{M}$. Consider $fg$ on $Y=(fg)^{-1}(\mathbb{R})$. If both $f$ and $g$ are finite, then $fg$ measurable on this domain $Y_1$. If one of the maps is infinite and the other map is zero, denote this domain with $Y_2\in\mathcal{M}$. $Y_2$ is included in the inverse image  of $0$. Therefore $fg$ is measurable on $Y_1\cup Y_2=Y$. Therefore $fg$ is measurable on $\overline{\mathbb{R}}$ by exercise 1.
+    \par (b) Obviously $(f+g)^{-1}(\{\pm\infty\})\in\mathcal{M}$. In the same sense consider $f+g$ on $Y$. If $f$ and $g$ are both finite, then $f+g$ is measurable on this domain $Y_1$. Otherwise these two maps produce infinity of different signs and included in the reverse image of $a$. Therefore $f+g$ is measurable on $\overline{\mathbb{R}}$. 
+\end{proof}
+\subsection*{Exercise 3}
+If $\{f_n\}$ is a sequence of measurable functions on $X$, then $\{x:\lim f_n(x)\,\mathrm{exists}\}$ is a measurable set.
+\begin{proof}
+    $\forany x\in X$, $\lim f_n(x)$ exists if and only if $g_3(x)=g_4(x)$, where $g_3(x)=\lim\sup f_n(x)$, $g_4(x)=\lim\inf f_n(x)$. Since $f_n$ is measurable for each $n$, $g_3$ and $g_4$ are measurable, which implies $g_3-g_4$ is also measurable on both $\mathbb{R}$ and $\overline{\mathbb{R}}$. Therefore $\{x:\lim f_n(x)\,\mathrm{exists}\}=(g_3-g_4)^{-1}(\{0\})\cup\{g_3^{-1}(\infty)\}\cap\{g_4^{-1}(\infty)\}\cup\{g_3^{-1}(-\infty)\}\cap\{g_4^{-1}(-\infty)\}$ is measurable.
+\end{proof}
+\subsection*{Exercise 4}
+If $f:X\to\overline{\mathbb{R}}$ and $f^{-1}((r,\infty])\in\mathcal{M}$ for each $r\in\mathbb{Q}$, then $f$ is measurable.
+\begin{proof}
+    $\forany r\in\mathbb{R}$, by the definition of real numbers there is a cauthy sequence of increasing rational numbers $q_n$ such that $\lim q_n=r$. Then $f^{-1}((r,\infty])=f^{-1}(\cap_n(q_n,\infty])=\cap_n f^{-1}((q_n,\infty])\in\mathcal{M}$, $f$ measurable.
+\end{proof}
+\subsection*{Exercise 5}
+If $X=A\cup B$ where $A,B\in\mathcal{M}$, a function $f$ is measurable on $X$ iff $f$ measurable on both $A$ and $B$.
+\begin{proof}
+    Recall that $f$ is measurable on $A\subset X$ if $f^{-1}(B)\cap A\in\mathcal{M}$ for any set $B$ that is measurable. Therefore obviously $f$ measurable on $A$ and $B$. Conversely, give any measurable set $M$, then $f^{-1}(M)\cap A\in\mathcal{M}$, $f^{-1}(M)\cap B\in\mathcal{M}$. Then $f^{-1}(M)\in\mathcal{M}$.
+\end{proof}
+\subsection*{Exercise 6}
+The supremum of an uncountable family of measurable $\overline{\mathbb{R}}$-valued functions on $X$ can fail to be measurable.
+\begin{solution}
+    Consider any unmeasurable set $Y$ (then it is uncountable), give $f_y=\chi_y$ for any $y\in Y$. Then $\sup_y f_y=\chi_Y$ is not measurable since $Y$ is not measurable.
+\end{solution}
+\subsection*{Exercise 7}
+Suppose that for each $\alpha\in\mathbb{R}$ we are given a set $E_\alpha\in\mathcal{M}$ such that $E_\alpha\subset E_\beta$ whenever $\alpha<\beta$, $\cup_{\alpha\in\mathbb{R}}E_\alpha=X$, and $\cap_{\alpha\in\mathbb{R}}E_\alpha=\varnothing$. Then there is a measurable function $f:X\to\mathbb{R}$ such that $f(x)\le\alpha$ on $E_\alpha$ and $f(x)\ge\alpha$ on $E^c_\alpha$ for every $\alpha$.
+\begin{solution}
+    Take $f(x)=\inf\{q\in\mathbb{Q}:x\in E_q\}$. Then $\forany x\in E_\alpha$, for any rational $q$ that $q>\alpha$, $x\in E_q$. Therefore $f(x)\le\alpha$. Similarly $\forany x\in E_\alpha^c$, $x\in E_q^c$ for any rational numbers $q\le a$, therefore $x\not\in E_q$, $x$ may only be in some $E_q$ that $q>\alpha$, therefore $f(x)\ge\alpha$. Note that: (1) $f$ is $\mathbb{R}$-valued since $\forany x\in X$, $x\in E_q$ for some rational $q$, therefore $f(x)\le q$; if $f(x)=-\infty$ then $x\in\cap_{\alpha\in\mathbb{R}}E_\alpha$ contradiction. (2) $f$ is $\mathbb{R}$-measurable because $\forany \alpha\in\mathbb{R}$, $f^{-1}([\alpha,\infty))=\cup_n f^{-1}([q_n,\infty))=\cup_n\{x:f(x)\ge q_n\}=\cup_n E_q^c\in\mathcal{M}$ where $q_n$ is some decreasing cauthy sequence of rationals that converges to $\alpha$.
+\end{solution}
+\subsection*{Exercise 8}
+If $f:\mathbb{R}\to\mathbb{R}$ is monotone, then $f$ is borel measurable.
+\begin{proof}
+    Without loss of generality, suppose $f$ is increasing, then $f^{-1}$ is also monotone increasing on $\mathrm{Im}f$. Thus $f^{-1}([a,\infty))$ must be some interval, therefore borel measurable. Hence $f$ is borel measurable.
+\end{proof}
+\subsection*{Exercise 9}
+Let $f:[0,1]\to[0,1]$ be the cantor function, and let $g(x)=f(x)+x$.
+\par (a) $g$ is a bijection from $[0,1]$ to $[0,2]$, and $h=g^{-1}$ is continuous from $[0,2]$ to $[0,1]$.
+\par (b) If $C$ is the cantor set, $m(g(C))=1$.
+\par (c) By Exercise 1.29, $g(C)$ contains a Lebesgue nonmeasurable set $A$. Let $B=g^{-1}(A)$. Then $B$ is Lebesgue measurable but not Borel measurable.
+\begin{proof}
+    (a) Obviously $g$ is monotone increasing and continuous, thus $g([0,1])=[0,2]$, $g$ is bijective. Therefore $\forany (a,b)\in[0,1]$, $h^{-1}((a,b))=g((a,b))=(g(a),g(b))$, $h$ is open.
+    \par (b) Recall $C=[0,1]\backslash(\cup_kI_k)$. Since $g$ is bijective and $\{I_k\}$ is pairwise disjoint, $g(C)=[0,2]\backslash g(\cup_k I_k)=[0,2]\backslash (\cup_kg(I_k))$. By the construction of $f$, $f$ is constant on $I_k$. Thus $m(g(I_k))=m(I_k)$. Therefore
+    $$
+    m(g(C))=m([0,2])-\sum_k m(I_k)=1
+    $$
+    \par (c) Since $B=g^{-1}(A)\subset g^{-1}(g(C))=C$, $B$ must be of zero measure because it is contained in some null sets. Since $h$ is continuous hence borel measurable, if $B$ is borel measurable then $A=h^{-1}(B)$ would be borel measurable, contradiction.
+\end{proof}
+\subsection*{Exercise 10}
+The following implications are valid iff the measure $\mu$ is complete.
+\par (a) If $f$ is measurable then $f=g$ $\mu$-a.e., then $g$ is measurable.
+\par (b) If $f_n$ is measurable for $n\in\mathbb{N}$ and $f_n\to f$ $\mu$-a.e., then $f$ is measurable.
+\begin{proof}
+    (a) If $\mu$ is complete, then $g-f$ must be measurable since it is only non-zero on some null sets, therefore $g=g-f+f$ is Lebesgue measurable. Conversely, suppose any $N\subset E$ with $E$ a null set. Then let $f=\chi_E$, $g=\chi_{E\backslash N}$. Then $f-g=\chi_N$ must be measurable. Therefore $N=(f-g)^{-1}(\{1\})$ is measurable.
+    \par (b) Since $f_n$ is measurable for each $n$, $\lim f_n$ is measurable, and $\lim f_n=f$ $\mu$-a.e.. If $\mu$ is complete, by (a) $f$ is measurable. Conversely, suppose any subset $N$ of a null set, take $f_n=0$ for each $n$ and $f=\chi_N$, then $f$ is measurable, $N$ must be measurable.
+\end{proof}
+\subsection*{Exercise 11}
+Suppose that $f$ is a function on $\mathbb{R}\times\mathbb{R}^k$ such that $f(x,\cdot)$ is borel measurable for each $x\in\mathbb{R}$ and $f(\cdot,y)$ is continuous for each $y\in\mathbb{R}^k$. For $n\in\mathbb{N}$, define $f_n$ as follows. For $i\in\mathbb{Z}$ let $a_i=i/n$, and for $a_i\le x\le a_{i+1}$ let
+$$
+f_n(x,y)=\dfrac{f(a_{i+1},y)(x-a_i)-f(a_i,y)(x-a_{i+1})}{a_{i+1}-a_i}
+$$
+Then $f_n$ is borel measurable on $\mathbb{R}\times\mathbb{R}^k$ and $f_n\to f$ pointwise; hence $f$ is borel measurable on $\mathbb{R}\times\mathbb{R}^k$. Conclude by induction that every function on $\mathbb{R}^n$ that is continuous in each variable separately is Borel measurable.
+\begin{proof}
+    Since $f(x,\cdot):\mathbb{R}^k\to\mathbb{R}$ and $x-a_i:\mathbb{R}\to\mathbb{R}$ is measurable, $f_n(x,y)$ is measurable. Now show that $f_n\to f$ pointwise. Since
+    \begin{align*}
+        |f-f_n|&=|f(x,y)-\dfrac{1}{a_{i+1}-a_i}f(a_{i+1},y)(x-a_i)-f(a_i,y)(x-a_{i+1})|\\
+        &=\dfrac{1}{a_{i+1}-a_i}|(f(x,y)-f(a_{i+1},y))(x-a_{i})-(f(a_i,y)-f(x,y))(x-a_{i+1})|
+    \end{align*}
+    Suppose some $\epsilon>0$, then there is a open neighbourhood $B_\delta(x)$ such that $\forany x'\in B_\delta(x)$, $|f(x)-f(x_0)|<\epsilon$. Take $n$ large enough such that $[a_i,a_{i+1}]$ is in that neighbourhood, then
+    $$
+    |f-f_n|\le\dfrac{\epsilon}{a_{i+1}-a_i}|(a_{i+1}-a_i)|=\epsilon
+    $$
+    Since $f_n\to f$, $f$ is borel measurable on $\mathbb{R}\times\mathbb{R}^k$. If $f(x):\mathbb{R}\to\mathbb{R}$ is continuous, then it is measurable. Assume that if $f:\mathbb{R}^n\to\mathbb{R}$ is continuous with respect to each variable then it is measurable. Then suppose any function $g:\mathbb{R}\times\mathbb{R}^n\to\mathbb{R}$. By previous exercise $g$ is measurable. Therefore the proof is done by induction.
+\end{proof}
+\subsection*{Exercise 13}
+Suppose $\{f_n\}\subset L^+$, $f_n\to f$ pointwise, and $\int f=\lim\int f_n<\infty$. Then $\int_E f=\lim\int_E f_n$ forall $E\in\mathcal{M}$. However, this need not be true if $\int f=\lim\int f_n=\infty$.
+\begin{proof}
+    By Fatou's lemma,
+    $$
+    \int_Ef=\int f\chi_E=\int\liminf f_n\chi_E\le\liminf\int f_n\chi_E=\lim\inf\int_Ef_n
+    $$
+    Conversely, write
+    $$
+    \int f-\int_E f=\int_{E^c} f\le\liminf\int_{E^c}f_n=\liminf(\int f-\int_E f)=\int f-\limsup\int_E f
+    $$
+    therefore $\limsup\int_Ef_n\le\int_E f\le\liminf\int_Ef_n$, $\lim\int_Ef_n=\int_Ef$,
+    the proof is done. For counter-examples, just take $f_n=\chi_{[n,n+1]}+\chi_{(-\infty,0]}$ and $E=[0,\infty)$.
+\end{proof}
+\subsection*{Exercise 14}
+If $f\in L^+$, let $\lambda(E)=\int_Ef\mathrm{d}\mu$ for $E\in\mathcal{M}$. Then $\lambda$ is a measure on $\mathcal{M}$, and for any $g\in L^+$, $\int g\mathrm{d}\lambda=\int fg\mathrm{d}\mu$.
+\begin{proof}
+    $\lambda(\varnothing)=0$. Suppose a collection of disjoint measurable sets $\{E_n\}$, then $\lambda(\cup_n E_n)=\int f\chi_{\cup_nE_n}\mathrm{d}\mu=\sum_n\int f\chi_{E_n}\mathrm{d}\mu=\sum_n\lambda(E_n)$, therefore $\lambda$ is a measure.
+    \par Give $\phi=\sum_ia_i\chi_{E_i}$ a simple function. Then $\int\phi\mathrm{d}\lambda=\sum_ia_i\lambda(E_i)=\int f\sum_ia_i\chi_{E_i}\mathrm{d}\mu=\int f\phi\mathrm{d}\mu$. Now suppose $\{\phi_n\}$ an increasing collection of simple functions that $\phi_n\to g$. Then
+    $$
+    \int g\mathrm{d}\lambda=\lim\int\phi_n\mathrm{d}\lambda=\lim\int f\phi_n\mathrm{d}\mu=\int fg\mathrm{d}\mu
+    $$
+\end{proof}
+\subsection*{Exercise 15}
+If $\{f_n\}\subset L^+$, $f_n$ decreases pointwise to $f$, and $\int f_1<\infty$, then $\int f=\lim\int f_n$.
+\begin{proof}
+    Obviously $\{f_1-f_n\}$ increases pointwise to $\{f_1-f\}$. Therefore by MCT,
+    $$
+    \lim\int(f_1-f_n)=\int(f_1-f)
+    $$
+    hence
+    $$
+    \int f=\int f_1-\int (f_1-f)=\int f_1-\lim\int(f_1-f_n)=\lim f_n
+    $$
+    where the last equality is because $\int (f_1-f_n)+\int f_n=\int f_1$.
+\end{proof}
+\subsection*{Exercise 16}
+If $f\in L^+$ and $\int f<\infty$, for every $\epsilon>0$ there exists $E\in\mathcal{M}$ such that $\mu(E)<\infty$ and $\int_E f>\int f-\epsilon$.
+\begin{proof}
+    By the definition of integration, for every $\epsilon>0$, there exists a simple function $\phi$ that $\int\phi>\int f-\epsilon$. Write $\phi=\sum_i a_i\chi_{E_i}$ with the standard representation (where $a_i\neq 0$ for each $i$). Let $E=\cup_iE_i$, then $\int_E f>\int\phi>\int f-\epsilon$. Now show that $E$ is of finite measure. It is obvious that
+    $$
+    \infty>\int\phi\ge\int\min\{a_i\}\chi_E=\min\{a_i\}\mu(E)
+    $$
+    therefore $\mu(E)<\infty$.
+\end{proof}
+\subsection*{Exercise 17}
+Assume Fatou's Lemma and deduce the monotone convergence theorem.
+\begin{proof}
+    Suppose $\{f_n\}$ is a sequence in $L^+$ such that $f_j\le f_{j+1}$ for all $j$, and $f=\lim_{n\to\infty}f_n=\liminf f_n$, then by Fatou's lemma,
+    $$
+    \int f=\int\liminf f_n\le\liminf\int f_n
+    $$
+    Conversely,
+    $$
+    0=\int\liminf(f- f_n)\le\liminf\int (f-f_n)=\liminf(\int f-\int f_n)=\int f-\limsup\int f_n
+    $$
+    where $\int (f-f_n)=\int f-\int f_n$ because of $\int(f-f_n+f_n)=\int f_n+\int (f-f_n)=\int f$. Thus $\int f=\lim\int f_n$.
+\end{proof}
+\subsection*{Exercise 18}
+Fatou's lemma remains valid if the hypothesis that $f_n\in L^+$ is replaced by the hypothesis that $f_n$ is measurable and $f_n\ge -g$ where $g\in L^+\cap L^1$.
+\begin{proof}
+    Obviously $g_n=f_n+g\ge 0$. Then $\{g_n\}$ is a sequence in $L^+$. Therefore by Fatou's lemma,
+    $$
+    \int\liminf g_n=\int\liminf f_n+\int g\le\liminf\int f_n+\int g
+    $$
+    therefore $\int\liminf f_n\le\liminf\int f_n$.
+\end{proof}
+\subsection*{Exercise 19}
+Suppose $\{f_n\}\subset L^1(\mu)$ and $f_n\to f$ uniformly.
+\par (a) If $\mu(X)<\infty$, then $f\in L^1(\mu)$ and $\int f_n\to\int f$.
+\par (b) If $\mu(X)=\infty$, the conclusions of (a) can fail.
+\begin{proof}
+    (a) Since $f_n\to f$ uniformly, $\exist N$ such that $\forany n\ge N$ and $\forany x\in X$, $|f(x)-f_n(x)|\le1$. Let $g(x)=|f_N(x)|+1$, then $f_n\le g$ for each $n$. Since
+    $$
+    \int g=\int|f_N(x)|+1=\int f_N(x)+\mu(X)<\infty
+    $$
+    by DCT $f\in L^1(\mu)$ and $\int f_n\to\int f$.
+    \par (b) Just take $f_n=(1/n)\chi_{[0,n)}$
+\end{proof}
+\subsection*{Exercise 20}
+If $f_n,g_n,f,g\in L^1$, $f_n\to f$ and $g_n\to g$ a.e., $|f_n|\le g_n$, and $\int g_n\to\int g$, then $\int f_n\to\int f$.
+\begin{proof}
+    By taking real and imaginary parts, assume $f_n$ and $g_n$ are real. Then $f_n+g_n\ge 0$ and $g_n-f_n\ge 0$. By Fatou's Lemma,
+    $$
+    \int(f+g)\le\int\liminf (f_n+g_n)\le\liminf\int(f_n+g_n)=\liminf\int f_n+\int g
+    $$
+    $$
+    \int(g-f)\le\int\liminf (g_n-f_n)\le\liminf\int(g_n-f_n)=\int g-\limsup\int f_n
+    $$
+    thus $\int f_n\to\int f$.
+\end{proof}
+\subsection*{Exercise 21}
+Suppose $f_n,f\in L^1$ and $f_n\to f$ a.e. Then $\int|f-f_n|\to 0$ iff $\int|f_n|\to\int|f|$.
+\begin{proof}
+    Obviously $$\left|\int|f|-\int|f_n|\right|=\left|\int|f|-|f_n|\right|\le\int|f-f_n|\to 0$$
+    Conversely, if $\int|f_n|\to\int|f|$, then by Exercise 20, $\int f_n\to\int f$. Thus $|\int f-\int f_n|=\int|f-f_n|\to 0$.
+\end{proof}
+\subsection*{Exercise 22}
+Let $\mu$ be a counting measure on $\mathbb{N}$. Interpret Fatou's lemma and the monotone and dominated convergence theorem as statements about infinite series.
+\begin{solution}
+    Obviously the measure of a measurable function $f$ on $(\mathbb{N},\mu)$ is $\int f=\sum_n f(n)=\sum_n a_n$. Therefore by Fatou's lemma, suppose $\{a_{nk}\}$ a sequence of nonnegative numbers, then $\sum_k\liminf_n a_{nk}\le\liminf_n\sum_k a_{nk}$. By MCT, given a sequence of nonnegative numbers $\{a_{nk}\}$, if $a_{nk}\le a_{n+1,k}$ for every $n$ and $k$, and $a_{nk}\to a_{k}$ for every $k$, then $\lim_n\sum_ka_{nk}=\sum_ka_k$. The DCT says that for any sequence of complex numbers $\{a_{nk}\}$ such that $|a_{nk}|\le |g_k|$ for each $k$, and $a_{nk}\to a_k$ for every $k$, then $\lim_n\sum_k a_{nk}=\sum_k a_k$.
+\end{solution}

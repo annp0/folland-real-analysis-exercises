@@ -1,0 +1,180 @@
+\subsection*{Exercise 25}
+Let $f(x)=x^{-1/2}$ if $0<x<1$, $f(x)=0$ otherwise. Let $\{r_n\}^\infty_1$ be an enumeration of the rationals, and set $g(x)=\sum^\infty_12^{-n}f(x-r_n)$.
+\par (a) $g\in L^1(m)$, and in particular $g<\infty$ a.e.
+\par (b) $g$ is discontinuous at every point and unbounded on every interval, and it remains so after any modification on a Lebesgue null set.
+\par (c) $g^2<\infty$ a.e., but $g^2$ not integrable on any interval.
+\begin{proof}
+    (a) Observe
+    $$
+    \int |g|=\int \sum^\infty_1\dfrac{f(x-r_n)}{2^n}=\sum^\infty_1\dfrac{1}{2^n}\int f(x-r_n)=\sum^\infty_1\dfrac{1}{2^{n-1}}<\infty
+    $$
+    where by MCT,
+    $$
+    \int f(x-r_n)=\lim_{t\to\infty}\int f(x-r_n)\chi_{(r_n+1/t,r_n+1)}=\lim_{t\to\infty}\int^{r_n+1/t}_{r_n}(x-r_n)^{1/2}\mathrm{d}x=2
+    $$
+    therefore $g\in L^1(m)$, and obviously $g<\infty$ a.e.
+    \par (b) Suppose $x_0\in\mathbb{R}$ with $g$ continuous at $x_0$. Then obviously $g(x_0)<\infty$. For any $\epsilon>0$ and $0<\delta<1$, there exists $r_n\in\mathbb{Q}$ such that $x_0<r_n<x_0+\delta$. Let $x'\in(r_n,x_0+\delta)$ such that
+    $$
+    g(x_0)+\epsilon<\dfrac{1}{2^n}f(x'-r_n)
+    $$
+    then $g(x')\ge\dfrac{1}{2^n}f(x'-r_n)\ge g(x_0)+\epsilon$. Since $\delta$ is arbitrary, contradiction. For any interval $(a,b)\subset\mathbb{R}$, take $r_n\in(a,b)$. Then for any $\epsilon$ that is sufficiently large, $g(r_n+(\dfrac{1}{2^n}\epsilon)^2)\ge\epsilon$. Therefore $g(x)$ is unbounded on any interval. If after modification $g$ is no longer unbounded on some interval, take this interval as the same interval $(a,b)$. then $\exist \epsilon>0$ such that $g(x-r_n)<\epsilon$ for all $x\in(a,b)$, then $g$ is modified on at least $(r_n,r_n+(\dfrac{1}{2^n}\epsilon)^2)$ which has a non-zero measure, contradiction.
+    \par (c) By (a) it immediately follows that $g^2<\infty$ a.e. For the second part, observe
+    $$
+    \int g^2\ge\int\sum_1^\infty\dfrac{f^2(x-r_n)}{4^n}=\sum^\infty_1\dfrac{1}{4^n}\int f^2(x-r_n)=\infty
+    $$
+    where $\int f^2(x-r_n)=\infty$ follows the same argument as (a).
+\end{proof}
+\subsection*{Exercise 32}
+Suppose $\mu(X)<\infty$. If $f$ and $g$ are complex valued measurable functions on $X$, define
+$$
+\rho(f,g)=\int\dfrac{|f-g|}{1+|f-g|}
+$$
+Then $\rho$ is a metric on the space of measurable functions if we identify functions that are equal a.e., and $f_n\to f$ w.r.t. this metric iff $f_n\to f$ in measure.
+\begin{proof}
+    The triangle inequality is obvious since
+    $$
+    \dfrac{|f-g|}{1+|f-g|}=1-\dfrac{1}{1+|f-g|}
+    $$
+    is an increasing function of $|f-g|$. Suppose $\epsilon>0$. If $f_n\to f$ in measure then for any $\eta>0$, $\exist N$ such that $\forany n\ge N$,
+    $$
+    \mu(E_n=\{x:|f_n(x)-f(x)|>\epsilon\})<\eta
+    $$
+    take $\eta=\epsilon$, then
+    $$
+    \rho(f_n,f)=\int_{E_n}\dfrac{|f_n-f|}{1+|f_n-f|}+\int_{E_n^c}\dfrac{|f_n-f|}{1+|f_n-f|}\le\mu(E_n)+\mu(X)\epsilon=\epsilon(1+\mu(X))\to 0
+    $$
+    Conversely suppose $\rho(f_n,f)\to 0$. Then $\forany\eta>0$, $\exist N$ such that if $n\ge N$, $\rho(f_n,f)<\eta$. Consequently,
+    $$
+    \dfrac{\epsilon}{1+\epsilon}\mu(E_n)\le\int_{E_n}\dfrac{|f_n-f|}{1+|f_n-f|}\le\eta
+    $$
+    therefore $\forany t>0$, take $\eta=\dfrac{\epsilon t}{1+\epsilon}$, then $\exist N$ such that $\mu(E_n)\le\eta\dfrac{1+\epsilon}{\epsilon}=t$.
+\end{proof}
+\subsection*{Exercise 33}
+If $f_n\ge 0$ and $f_n\to f$ in measure, then $\int f\le\liminf\int f_n$. 
+\begin{proof}
+    Recall that given a sequence of real numbers $\{a_{n}\}$, there exist a subsequence $\{a_{n_k}\}$ such that $a_{n_k}\to L$ for any $\liminf a_n\le L\le\limsup a_n$. Then there is a subsequence $\int f_{n_k}$ such that $\lim\int f_{n_k}=\liminf\int f_n$. Obviously $f_{n_k}\to f$ in measure, therefore there is a subsequence $f_{n_{k_i}}$ that converges to $f$ a.e. Therefore by Fatou's Lemma,
+    $$
+    \int f=\int\liminf_i f_{n_{k_i}}\le\liminf_i\int f_{n_{k_i}}=\lim_k\int f_{n_k}=\liminf\int f_n
+    $$
+\end{proof}
+\subsection*{Exercise 34}
+Suppose $|f_n|\le g\in L^1$ and $f_n\to f$ in measure,
+\par (1) $\int f=\lim\int f_n$,
+\par (2) $f_n\to f$ in $L^1$.
+\begin{proof}
+    \par (a) Since $f_n\to f$ in measure iff $\mathrm{Re}(f_n)\to f$ in measure and $\mathrm{Im}(f_n)\to f$ in measure, assume $f_n$ and $f$ are real-valued. Since $f_n\in L^1$ and there is a subsequence of $f_n$ that converges to $f$ a.e., $f\in L^1$. Since $g+f_n$ and $g-f_n$ are non-negative functions, the previous exercise implies that
+    $$
+    \int g+\int f=\int\liminf(g+f_n)\le\liminf\int(g+f_n)=\int g+\liminf\int f_n
+    $$
+    $$
+    \int g-\int f=\int\liminf(g-f_n)\le\liminf\int(g-f_n)=\int g-\limsup\int f_n
+    $$
+    therefore $\int f=\lim\int f_n$.
+    \par (b) Obviously $|f_n-f|$ converges to $0$ in measure. Since $|f_n-f|\le|f_n|+|f|\le 2|g|\in L^1$, by (a), $\lim\int|f_n-f|=0$, $f_n\to f$ in $L^1$.
+\end{proof}
+\subsection*{Exercise 35}
+$f_n\to f$ in measure iff for every $\epsilon>0$ there exist $N\in\mathbb{N}$ such that $\mu(\{x:|f_n(x)-f(x)|\ge\epsilon\})\le\epsilon$ for $n\ge N$.
+\begin{proof}
+    For any $\epsilon,\eta>0$, suppose $\eta<\epsilon$, then $\exist N$ such that $\forany n\ge N$, $\mu(\{x:|f_n(x)-f(x)|>\epsilon\})\le\mu(\{x:|f_n(x)-f(x)|>\eta\})<\eta$. The reverse direction is trivial.
+\end{proof}
+\subsection*{Exercise 36}
+If $\mu(E_n)<\infty$ for $n\in\mathbb{N}$ and $\chi_{E_n}\to f\in L^{1}$, then $f$ is a.e. equal to the characteristic function of a measurable set.
+\begin{proof}
+    Since $\chi_{E_n}\to f$ in $L^1$, there exists a subsequence $\chi_{E_{n_k}}\to f$ a.e. Therefore there is a measurable function $g$ such that $g=f$ a.e. Since $f$ and $g$ can only take values 0 or 1, $f=\chi_{g^{-1}\{1\}}$ a.e.
+\end{proof}
+\subsection*{Exercise 37}
+Suppose that $f_n$ and $f$ are measurable compelx-valued functions and $\phi:\mathbb{C}\to\mathbb{C}$.
+\par (a) If $\phi$ is continuous and $f_n\to f$ a.e., then $\phi\circ f_n\to\phi\circ f$ a.e.
+\par (b) If $\phi$ is uniformly continuous and $f_n\to f$ uniformly, almost uniformly, or in measure, then $\phi\circ f_n\to\phi\circ f$, uniformly, almost uniformly, or in measure, respectively.
+\par (c) There are counterexamples when the continuity assumptions on $\phi$ are not satisfied.
+\begin{proof}
+    \par (a) Let $x\in X$ be a point where $f_n$ converges to $f$. Then
+    $$
+    \lim_{n\to\infty}\phi(f_n(x))=\phi(\lim_{n\to\infty}f_n(x))=\phi(f(x))
+    $$
+    so $\phi\circ f_n\to\phi\circ f$ a.e.
+    \par (b) Suppose $f_n\to f$ uniformly, $\forany\epsilon>0$, $\exist N$ such that $|f_n-f|<\epsilon$ for $n\ge N$. Since $\phi$ is also uniformly continuous, $\forany\epsilon>0$, $\exists \delta>0$ such that $|\phi(f_n)-\phi(f)|<\epsilon$ for any $|f_n-f|<\delta$. Therefore $\phi\circ f_n\to\phi\circ f$ uniformly. The same argument applys for the almost uniform case. If $f_n\to f$ in measure, since $\phi$ is uniformly continuous, $\exist\eta$,
+    $$
+    \{x:|\phi(f_n(x))-\phi(f(x))|<\epsilon\}\subset \{x:|f_n(x)-f(x)|<\eta\}
+    $$
+    the proof is done since $\mu(\{x:|f_n(x)-f(x)|<\eta\})\to 0$
+    \par (c) Give $f_n=e^{-n}$, $f_n\to f$ uniformly, suppose $\phi=\ln x$, then $\phi\circ f_n=-n$, which is anywhere divergent.
+\end{proof}
+\subsection*{Exercise 38}
+Suppose $f_n\to f$ in measure and $g_n\to g$ in measure.
+\par (a) $f_n+g_n\to f+g$ in measure.
+\par (b) $f_ng_n\to fg$ in measure if $\mu(X)<\infty$, but not necessarily if $\mu(X)=\infty$.
+\begin{proof}
+    \par (a) Let $\epsilon>0$, then $\exist N_f, N_g$ such that $\mu(\{x:|f_n-f|\ge\epsilon/2\})<\epsilon/2$ for $n>N_f$ and likewise for $g$. When $n$ is large enough, since $|(f_n+g_n)-(f+g)|\le|f_n-f|+|g_n-g|$,
+    $$
+    \{x:|(f_n+g_n)-(f+g)|\ge\epsilon\}\subset\{x:|f_n-f|\ge\epsilon/2\}\cup\{x:|g_n-g|\ge\epsilon/2\}
+    $$
+    therefore $\mu(\{x:|(f_n+g_n)-(f+g)|\ge\epsilon\})\to 0$.
+    \par (b) Likewise define $\epsilon, N_f, N_g$. Since $|f_ng_n-fg|\le|f_n-f||g_n-g|+|f||g_n-g|+|g||f_n-f|$,
+    $$
+    \{x:|fg-f_ng_n|>\epsilon\}\subset\{x:|f_n-f||g_n-g|>\epsilon/3\}\cup\{x:|f_n-f||g|>\epsilon/3\}\cup\{x:|f||g_n-g|>\epsilon/3\}
+    $$
+    It is obvious that $\mu(\{x:|f_n-f||g_n-g|>\epsilon/3\})\to 0$. To show $\mu(\{x:|f||g_n-g|>\epsilon/3\})\to 0$, claim that for any $\eta>0$, $\exist N\in\mathbb{N}$ such that $\mu(\{x:|f|>N\})<\eta$. Let $E_n=\{x:|f|>n\}$, then $E_n$ is a decreasing sequence of sets. Since $\mu(X)<\infty$, and $|f|$ can only take on finite values which implies $\cap_nE_n=\varnothing$, by convergence from below, $\mu(E_n)\to 0$, which verifies the claim. Since
+    $$
+    \{x:|f||g_n-g|>\epsilon/3\}\subset\{x:|f|>N\}\cup\{x:|g_n-g|<\epsilon/3N\}
+    $$
+    for each $N$, there is
+    $$
+    \mu(\{x:|f_n-f||g_n-g|>\epsilon/3\})\le\mu(\{x:|f|>N\})+\mu(\{x:|g_n-g|>\epsilon/3N\})
+    $$
+    therefore $\forany\nu>0$, take $N$ and $n$ such that $\mu(\{x:|f|>N\})<\nu/2$ and $\mu(\{x:|g_n-g|>\epsilon/3N\}<\nu/2$, it can be seen that $\mu(\{x:|f||g_n-g|>\epsilon/3\})\to 0$, similarly $\mu(\{x:|g||f_n-f|>\epsilon/3\})\to 0$, the proof is done.
+\end{proof}
+\subsection*{Exercise 39}
+If $f_n\to f$ almost uniformly, then $f_n\to f$ a.e. and in measure.
+\begin{proof}
+    Since $f_n\to f$ almost uniformly, $\forany n\in\mathbb{N}$, $\exist E_n\subset X$ such that $\mu(E_n)<1/n$ and $f_n\to f$ uniformly on $E_n^c$. Then obviously $E=\cap_nE_n$ has zero measure by continuity from below, and $f_n\to f$ on $E^c$. Therefore $f_n\to f$ a.e. 
+    \par $\forany\epsilon>0$, take $E\subset X$ such that $f_n\to f$ uniformly on $E^c$ and $\mu(E)<\epsilon$. Then $\forany\eta>0$, $\exist N$ such that if $n>N$
+    $$
+    \{x:|f_n-f|>\eta\}\subset E
+    $$
+    therefore $f_n\to f$ in measure.
+\end{proof}
+\subsection*{Exercise 40}
+In Egoroff's theorem, the hypothesis ``$\mu(X)<\infty$'' can be replaced by ``$|f_n|\le g$ for all $n$, where $g\in L^1(\mu)$''.
+\begin{proof}
+    Without loss of generality, assume $f_n\to f$ for all $x\in X$. For $k,n\in\mathbb{N}$, let 
+    $$
+    E_n(k)=\bigcup^\infty_{m=n}\{x:|f_m-f|\ge k^{-1}\}
+    $$
+    then for fixed $k$, $E_n$ is a decreasing sequence. For $x\in X$, if $x\in E_1(k)$, then $\exist m$ such that $|f_m-f|\ge 1/k$. Therefore $1/k\le|f_m+f|\le 2g$, $\int 1/2k\chi_{E_{1}(k)}=1/2k\mu(E_{1}(k))\le\int g$. Since $g\in L^1$, $\mu(E_{1}(k))<\infty$. Therefore by continuity from below, $\mu(E_n(k))\to 0$. Given $\epsilon>0$ and $k\in\mathbb{N}$, choose $n_k$ so large that $\mu(E_{n_k}(k))\le\epsilon 2^{-k}$, and let $E=\cup_kE_{n_k}(k)$. Then $\mu(E)\le\epsilon$, and $|f_n-f|\le 1/k$ for $n>n_k$ and $x\in E^c$.
+\end{proof}
+\subsection*{Exercise 41}
+If $\mu$ is $\sigma$-finite and $f_n\to f$ a.e., there exist measurable $E_1,E_2,\cdots\subset X$ such that $\mu((\cup^\infty_1E_j)^c)=0$ and $f_n\to f$ uniformly on each $E_j$.
+\begin{proof}
+    Suppose $\mu(X)<\infty$, then by Egoroff's theorem, for each $k\in\mathbb{N}$, $\exist E_k$ such that $\mu(E_k^c)<1/k$ and $f_n\to f$ uniformly on $E_k$. Let $F_n=\cup_1^n E_k$, then $F_n^c$ is a decreasing sequence, therefore
+    $$
+    \mu\left(\left(\bigcup_1^\infty E_j\right)^c\right)=\mu\left(\left(\bigcup_1^\infty F_j\right)^c\right)=\mu\left(\bigcap_1^\infty F_j\right)=0
+    $$
+    and $f_n\to f$ uniformly on each $E_j$.
+    \par Since $\mu$ is $\sigma$-finite, $X=X_1\cup X_2\cdots$ each with finite measure. Therefore for each $i$, there exists $\{E^i_k\}$ such that $\mu(X_i\backslash(\cup_kE^i_k))=0$ and $f_n\to f$ uniformly on each $E^i_k$. Since
+    $$
+    \mu\left(\left(\bigcup_{i,k}E^i_k\right)^c\right)\le\mu\left(\bigcup_i\left(X_i\backslash\bigcup_kE^i_k\right)\right)=0
+    $$
+    $\{E^i_k\}$ gives the desired sequence.
+\end{proof}
+\subsection*{Exercise 42}
+Let $\mu$ be the counting measure on $\mathbb{N}$. Then $f_n\to f$ in measure iff $f_n\to f$ uniformly.
+\begin{proof}
+    Suppose $f_n\to f$ in measure. Then $\forany\epsilon>0$, $\exist N\in\mathbb{N}$ such that if $n>N$,
+    $$
+    \mu(\{x:|f_n-f|>\epsilon\})<1/2
+    $$
+    therefore $|f_n-f|<\epsilon$ for each $x\in\mathbb{N}$, hence $f_n\to f$ uniformly. Conversely, if $\forany\epsilon>0$, $\exist N\in\mathbb{N}$ such that if $n>N$, $|f_n-f|<\epsilon$ for each $x\in\mathbb{N}$, then $\mu(\{x:|f_n-f|>\epsilon\})=0$.
+\end{proof}
+\subsection*{Exercise 44}
+If $f:[a,b]\to\mathbb{C}$ is Lebesgue measurable and $\epsilon>0$, there is a compact set $E\subset[a,b]$ such that $\mu(E^c)<\epsilon$ and $f|_E$ is continuous.
+\begin{proof}
+    For each $n\in\mathbb{N}$, let $E_n=f^{-1}(B_n(0))$. Then
+    $$
+    \lim\mu(E_n)=\mu(\cup_nE_n)=\mu([a,b])
+    $$
+    therefore $\exist m\in\mathbb{N}$ such that $\mu([a,b])-\mu(E_m)\le\epsilon/3$. Then $|f\chi_{E_m}|\le m\chi_{[a,b]}$, thus $g\in L^1$. Hence by theorem 2.26 there is a sequence of continuous functions $g_j\to f\chi_{E_m}$. By corollary 2.32, there is a subsequence $g_{j_i}\to f\chi_{E_m}$ a.e. By Egoroff's theorem, there exists $F\subset E_m$ such that $g_{j_i}\to f\chi_{E_m}$ uniformly on $E_m\backslash F$ and $\mu(F)<\epsilon/3$. By theorem 1.18, there exists a compact set $E$ such that $E\subset E_m\backslash F$ and $\mu(E)>\mu(E_m\backslash F)+\epsilon/3$. Therefore $f\chi_E$ is continuous, and 
+    $$
+    \mu(E^c)=\mu(E_m^c)+\mu(E_m\backslash E)\le\epsilon/3+\mu(E_m\backslash F)+\mu(E_m\backslash F\backslash E)\le\epsilon
+    $$
+\end{proof}

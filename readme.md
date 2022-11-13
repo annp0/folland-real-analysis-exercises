@@ -2,6 +2,8 @@
 
 This project contains some solutions to the exercise problems in Folland's real analysis.
 
+The text can be found [here](https://github.com/annp0/folland-real-analysis-exercises/blob/main/main.pdf).
+
 Exercises covered:
 
 - Chpater 1: 2,4-12, 14-31, 33 (total: 33, covered: 29)

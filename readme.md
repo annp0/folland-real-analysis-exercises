@@ -9,4 +9,8 @@ Exercises covered:
 
 There will be updates that covers more exercises.
 
+Any problems (like the correctness, readability of the proofs) are welcomed. 
+
+My email: annan at shanghaitech.edu.cn
+
 Thank you.

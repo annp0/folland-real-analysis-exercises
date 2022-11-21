@@ -1,4 +1,4 @@
-\subsection*{Exercise 18}
+\paragraph{Exercise 18}
 Let $\mathcal{A}\subset\mathcal{P}(X)$ be an algebra, $\mathcal{A}_\sigma$ the collection of countable unions of sets in $\mathcal{A}$, and $\mathcal{A}_{\sigma\delta}$ the collection of countable intersections of sets in $\mathcal{A}_\sigma$. Let $\mu_0$ be a premeasure on $\mathcal{A}$ and $\mu^*$ the induced outer measure.
 \par(a) For any $E\subset X$ and $\epsilon>0$ there exists $A\in\mathcal{A}_\sigma$ with $E\subset A$ and $\mu^*(A)\le\mu^*(E)+\epsilon$.
 \par(b) If $\mu^*(E)<\infty$, then $E$ is $\mu^*$-measurable iff there exists $B\in\mathcal{A}_{\sigma\delta}$ with $E\subset B$ and $\mu^*(B\backslash E)=0$.
@@ -13,12 +13,12 @@ Let $\mathcal{A}\subset\mathcal{P}(X)$ be an algebra, $\mathcal{A}_\sigma$ the c
     \par For the inverse, $\forany A\subset X$, $\mu^*(A\cap E)+\mu^*(A\cap E^c)\le\mu^*(A\cap B)+\mu^*(A\cap E^c\cap B^c)+\mu^*(A\cap E^c\cap B)\le\mu^*(A\cap B)+\mu^*(A\cap B^c)$. $\forany \epsilon>0$, $\exist C\in\mathcal{A}_\sigma$ such that $\mu^*(C)\le\mu^*(A)+\epsilon$ and $A\subset C$. By Caratheodory's theorem $\mu^*$ is a measure on $\mathcal{M}(\mathcal{A})$, therefore $\mu^*(A)+\epsilon\ge\mu^*(C)=\mu^*(C\cap B)+\mu^*(C\cap B^c)\ge\mu^*(A\cap B)+\mu^*(A\cap B^c)$. Therefore $\mu^*(A)\ge\mu^*(A\cap E)+\mu^*(A\cap E^c)$.
     \par (c) Notice that only need to prove the forword direction given that $\mu^*(E)=\infty$. Since $\mu_0$ is $\sigma$-finite, $\exist \{A_j\}\subset\mathcal{A}$ such that $\mu_0(A_j)<\infty$, $X=\cup_jA_j$. Let $E_j=E\cap A_j$, $\forany \epsilon>0$, take $B_j\in\mathcal{A_\sigma}$ and $E_j\subset B_j$ such that $\mu^*(B_j)\le\mu^*(E_j)+\epsilon/2^j$, then $\mu^*(B\backslash E)\le\mu^*(\cup_j(B_j\backslash E_j))\le\sum_j\mu^*(B_j\backslash E_j)=\sum_j(\mu^*(B_j)-\mu^*(E_j))\le\epsilon$. Therefore $\mu^*(B\backslash E)=0$.
 \end{proof}
-\subsection*{Exercise 19}
+\paragraph{Exercise 19}
 Let $\mu^*$ be an outer measure on $X$ induced from a finite premeasure $\mu_0$. If $E\subset X$, define the inner measure of $E$ to be $\mu_*(E)=\mu_0(X)-\mu^*(E^c)$. Then $E$ is $\mu^*$-measurable iff $\mu^*(E)=\mu_*(E)$.
 \begin{proof}
     If $E$ is $\mu^*$-measurable, then $\mu_0(X)=\mu^*(X)=\mu^*(E)+\mu^*(E^c)$, hence $\mu^*(E)=\mu_*(E)$. For the inverse, given $\mu^*(E)+\mu^*(E^c)=\mu_0(X)$, by exercise 18, $\forany n\in\mathbb{N}, \exist A_n\in\mathcal{A_\sigma}$ such that $E\subset A_n$, $\mu^*(A_n)\le\mu^*(E)+1/n$. Let $A=\cap_nA_n$, then $A\in\mathcal{A}_{\sigma\delta}$ with $E\subset A$. Since $A_n$ is $\mu^*$-measurable, $\mu^*(A\cap E^c)\le\mu^*(A_n\cap E^c)=\mu(E^c)-\mu(A_n^c\cap E)\le\mu_0(X)-\mu^*(E)-\mu(A_n^c)\le\mu^*(A_n)-\mu^*(E)\le1/n$ for any $n$, thus $\mu^*(A\cap E^c)=0$, therefore by exercise 18 $E$ is $\mu^*$-measurable.
 \end{proof}
-\subsection*{Exercise 20}
+\paragraph{Exercise 20}
 Let $\mu^*$ be an outer measure on $X$, $\mathcal{M}^*$ the $\sigma$-algebra of $\mu^*$-measurable sets, $\overline{\mu}=\mu^*|\mathcal{M}^*$, and $\mu^+$ the outer measure induced by $\overline{\mu}$.
 \par (a) If $E\subset X$, we have $\mu^*(E)\le\mu^+(E)$, with equality iff there exists $A\in\mathcal{M}^*$ with $E\subset A$ and $\mu^*(A)=\mu^*(E)$.
 \par (b) If $\mu^*$ is induced from a premeasure, then $\mu^*=\mu^+$.
@@ -32,7 +32,7 @@ Let $\mu^*$ be an outer measure on $X$, $\mathcal{M}^*$ the $\sigma$-algebra of 
     $$
     because of monotonicity, $0\le a\le c$, $0\le b\le c$. Then by subadditivity, $a+b\ge c$. If $\{0\}$ or $\{1\}$ is $\mu^*$-measurable, then $\mathcal{M}^*=\mathcal{P}(X)$, $\overline{\mu}=\mu^*=\mu^+$. Therefore they must not be $\mu^*$-measurable, $a+b\neq c$. Then $\mu^+(\{0\})=\mu^+(\{1\})=c$, $\mu^*\neq\mu^+$.
 \end{proof}
-\subsection*{Exercise 21}
+\paragraph{Exercise 21}
     Let $\mu^*$ be an outer measure induced from a premeasure and $\overline{\mu}$ the restriction of $\mu^*$ to the $\mu^*$-measurable sets. Then $\overline{\mu}$ is saturated.
     \begin{proof}
         Give a set $E\subset X$ such that $\forany A$ that is $\mu^*$-measurable, $E\cap A$ is still $\mu^*$-measurable and $\mu^*(A)<\infty$, now show that $E$ is $\mu^*$-measurable. For any $F\subset X$ that $\mu^*(F)<\infty$, $\exist \epsilon>0$ such that $A\in\mathcal{A}_\sigma$ such that $F\subset A$ and 
@@ -42,7 +42,7 @@ Let $\mu^*$ be an outer measure on $X$, $\mathcal{M}^*$ the $\sigma$-algebra of 
         \end{align*}
         therefore $E$ is $\mu^*$-measurable.
     \end{proof}
-\subsection*{Exercise 22}
+\paragraph{Exercise 22}
 Let $(X,\mathcal{M},\mu)$ be a measure space, $\mu^*$ the outer measure induced by $\mu$, $\mathcal{M}^*$ the $\sigma$-algebra of $\mu^*$-measurable sets, and $\overline{\mu}=\mu^*|\mathcal{M}^*$
 \par (a) If $\mu$ is $\sigma$-finite, then $\overline{\mu}$ is the completion of $\mu$.
 \par (b) In general, $\overline{\mu}$ is the saturation of the completion of $\mu$.
@@ -51,7 +51,7 @@ Let $(X,\mathcal{M},\mu)$ be a measure space, $\mu^*$ the outer measure induced 
     \par (b) Denote the completion of $(\mu,\mathcal{M})$ with $(\hat{\mu},\overline{\mathcal{M}})$, and the saturation of the completion $(\widetilde{\mu},\widetilde{\mathcal{M}})$. First show that $\widetilde{\mathcal{M}}=\mathcal{M}^*$. Give any $E$ that is locally $\hat{\mu}$-measurable, for any $F\subset X$ that $\mu^*(F)<\infty$, exists $A\in\mathcal{M}$ such that $F\subset A$ and $\mu^*(F)+\epsilon\ge\mu(A)=\hat\mu(A\cap(A\cap E))+\hat\mu(A\cap(A\cap E)^c)\ge\mu^*(E\cap F)+\mu^*(E^c\cap F)$, therefore $E$ is $\mu^*$-measurable. Conversely, if $E$ is $\mu^*$-measurable, for any $A\in\hat{\mathcal{M}}$ such that $\hat\mu(A)<\infty$, obviously $A\in\mathcal{M}^*$, therefore $E\cap A\in\mathcal{M}^*$, $\mu^*(E\cap A)=\hat\mu(E\cap A)\le\infty$. Then by (a), $E\cap A\in\overline{\mathcal{M}}$, therefore $E$ is locally $\hat\mu$-measurable.
     \par Now show that $\widetilde{\mu}=\overline{\mu}$. $\forany E\in\widetilde{\mathcal{M}}$, if $E$ is in $\overline{\mathcal{M}}$, then $\widetilde{\mu}(E)=\overline{\mu}(E)$ since the extension is unique. If $E$ is not in $\overline{\mathcal{M}}$, then $\widetilde{\mu}(E)=\infty$. If $\mu^*(E)<\infty$, then $E\in\overline{\mathcal{M}}$. Therefore $\widetilde{\mu}=\overline{\mu}$.
 \end{proof}
-\subsection*{Exercise 23}
+\paragraph{Exercise 23}
 Let $\mathcal{A}$ be the collection of finite unions of sets of the form $(a,b]\cap\mathbb{Q}$ where $-\infty\le a<b\le\infty$.
 \par(a) $\mathcal{A}$ is an algebra on $\mathbb{Q}$.
 \par(b) The $\sigma$-algebra generated by $\mathcal{A}$ is $\mathcal{P}(\mathbb{Q})$.
@@ -61,7 +61,7 @@ Let $\mathcal{A}$ be the collection of finite unions of sets of the form $(a,b]\
     \par (b) Since for any $a\in\mathbb{Q}$, $\cap_{n=1}^{\infty}(a,a+1/n]\cap\mathbb{Q}=\{a\}$ and $\mathbb{Q}$ is countable, any subset of $\mathbb{Q}$ may be generated by single point sets. Therefore $\mathcal{M}(\mathcal{A})=\mathcal{P}(\mathbb{Q})$.
     \par (c) It is easy to see that $\mu_0$ is finitely additive. Two measures that agree with $\mu_0$ when restricted to $\mathcal{A}$ may be given: (1) the counting measure; (2) the outer measure given by $\mu_0$. They will produce different results on $\{0\}$.
 \end{proof}
-\subsection*{Exercise 24}
+\paragraph{Exercise 24}
 Let $\mu$ be a finite measure on $(X,\mathcal{M})$, and let $\mu^*$ be the outer measure induced by $\mu$. Suppose that $E\subset X$ satisfies $\mu^*(E)=\mu^*(X)$.
 \par (a) If $A,B\in\mathcal{M}$ and $A\cap E=B\cap E$, then $\mu(A)=\mu(B)$.
 \par (b) Let $\mathcal{M}_E=\{A\cap E:A\in\mathcal{M}\}$, and define the function $\nu$ on $\mathcal{M}_E$ defined by $\nu(A\cap E)=\mu(A)$. Then $\mathcal{M}_E$ is a $\sigma$-algebra on $E$ and $\nu$ is a measure on $\mathcal{M}_E$.
@@ -69,7 +69,7 @@ Let $\mu$ be a finite measure on $(X,\mathcal{M})$, and let $\mu^*$ be the outer
     (a) $\mu^*(X\backslash E)=0$. Therefore $\mu(A)\le\mu^*(A\cap E)+\mu^*(A\cap E^c)=\mu^*(B\cap E)=\mu(B)$, and the reverse inequality is also true in the same sense. Therefore $\mu(A)=\mu(B)$.
     \par (b) Obviously $\varnothing$ and $E$ are in $\mathcal{M}_E$. For any $A\in\mathcal{M}$, the completion of $A\cap E$ in $E$ is still in $\mathcal{M}_E$. $\mathcal{M}_E$ is also closed to countable unions since $\mathcal{M}$ is a $\sigma$-algebra. Give any countable collection of disjoint sets $\{A_j\cap E\}$, $\nu(\cup_j A_j\cap E)=\mu(\cup_j A_j)$. Let $B_n=A_n\backslash\cup^{n-1}_1A_n$, then $B_j\cap E=A_j\cap E$. Therefore $\mu(\cup_j A_j)=\sum_j\mu(B_j)=\sum_j\mu(A_j)=\sum_j\nu(A_j\cap E)$.
 \end{proof}
-\subsection*{Exercise 25}
+\paragraph{Exercise 25}
 If $E\subset\mathbb{R}$, the following are equivalent:
 \par (a) $E\in\mathcal{M}_mu$.
 \par (b) $E=V\backslash N_1$ where $V$ is a $G_\delta$ set and $\mu(N_1)=0$.
@@ -77,22 +77,22 @@ If $E\subset\mathbb{R}$, the following are equivalent:
 \begin{proof}
     Obviously (b) and (c) implies (a). Suppose $E\in\mathcal{M}_\mu$, if $\mu(E)<\infty$, give any positive integer $n$, according the previous proposition one may select an open set $U_n$ and a compact set $K_n$ such that the error of their measure is within $1/n$. Then by taking the countable union or intersetion one may find such $H$ and $V$. If $\mu(E)=\infty$, let $E_j=E\cap(a_j,b_j]$. For any $\epsilon>0$, for each $j$, one can find $U_j$ such that $E_j\subset U_j$ and $\mu(U_j)\le\mu(E_j)+2^{-j}\epsilon$. Let $V=\cup_j U_j$, then $\mu(V\backslash E)=\sum_j\mu(U_j\backslash E_j)\le\epsilon$. In the same sense one can find a countable union of compact sets, $H$, such that $\mu(E\backslash H)=0$.
 \end{proof}
-\subsection*{Exercise 26}
+\paragraph{Exercise 26}
 If $E\in\mathcal{M}_\mu$ and $\mu(E)<\infty$, then for every $\epsilon>0$ there is a set $A$ that is a finite union of open intervals such that $\mu(E\vartriangle A)<\epsilon$.
 \begin{proof}
     By theorem 1.18, give any $\epsilon>0$ one can find a compact $K$ and an open $U$ such that $\mu(U)-\epsilon\le\mu(E)\le\mu(K)+\epsilon$. Therefore one can find finite union of open intervals $I=\cup_j I_j$ that $K\subset I\subset U$. Then $\mu(E\vartriangle I)=\mu(E\backslash I)+\mu(I\backslash E)\le 2\mu(U\backslash K)=2\epsilon$. 
 \end{proof}
-\subsection*{Exercise 27}
+\paragraph{Exercise 27}
 Denote the Cantor set $C$. Show that if $x,y\in C$ and $x<y$, there exists $z\not\in C$ such that $x<z<y$.
 \begin{proof}
     If such $z$ does not exist, then $x,y$ must lie in the same interval, which implies $|x-y|<3^{-n}$ for any $n$, thus $x=y$, contradiction. Therefore $x$ and $y$ must not lie in the same interval. Hence $\exist N$ such that $x$ and $y$ are seperated at the $n$-th iteration. Thus just pick any $z$ in the middle third of the interval then $x<z<y$.  
 \end{proof}
-\subsection*{Exercise 28}
+\paragraph{Exercise 28}
 Let $F$ be increasing and right continuous, and let $\mu_F$ be the assiciated measure. Then $\mu_F(\{a\})=F(a)-F(a-)$, $\mu_F([a,b))=F(b-)-F(a-)$, $\mu_F([a,b])=F(b)-F(a-)$, and $\mu_F=F(b-)-F(a)$.
 \begin{proof}
     Since $\{a\}=\cap_n[a,a+1/n)$, $\mu_F(\{a\})=\mu(\cap_n(a-1/n,a])=\lim_{n\to\infty}(F(a)-F(a-1/n))=F(a)-F(a-)$. Then $\mu_F([a,b))=\mu_F((a,b])+\mu(\{a\})-\mu(\{b\})=F(b-)-F(a-)$. The rest can be easily shown with the same argument.
 \end{proof}
-\subsection*{Exercise 29}
+\paragraph{Exercise 29}
 Let $E$ be a Lebesgue measurable set.
 \par (a) If $E\subset N$ where $N$ is the nonmeasurable set (taking one element of each equivalence class in $[0,1)/\{x-y\in\mathbb{Q}\}$), then $m(E)=0$.
 \par (b) If $m(E)>0$, then $E$ contains a nonmeasurable set.
@@ -100,17 +100,17 @@ Let $E$ be a Lebesgue measurable set.
     (a) Suppose $R=\mathbb{Q}\cap[0,1)$. Take $E_r=\{x+r:x\in E\cap[0,1-r)\}\cup\{x+r-1:x\in E\cap[1-r,1)\}$. Then each $E_r$ is measurable and a subset of $[0,1)$. Therefore $1=m([0,1))\ge m(\cup_r E_r)=\sum_r m(E_r)=\sum_rm(E)$, $m(E)=0$.
     (b) Because of translation invariance it suffices to consider $E\subset[0,1]$. Obviously $E=\cup_{r}E\cap N_r$. Then if each $E\cap N_r$ is measurable, $m(E)=\sum_r m(\cup_r(E\cap N_r))=\sum_r m((E\cap N))$, therefore $m(E)=0$, contradiction.
 \end{proof}
-\subsection*{Exercise 30}
+\paragraph{Exercise 30}
 If $E\in\mathcal{L}$ and $m(E)>0$, for any $\alpha<1$ there is an interval $I$ such that $m(E\cap I)>\alpha m(I)$.
 \begin{proof}
     Suppose that there exists an $\alpha$ such that for every open interval $I$,  $m(E\cap I)\le\alpha m(I)$. If $E$ is bounded, then there exists a collection of disjoint open intervals such that $E\subset\cup_k I_k$ with $\sum_k m(I_k)\le(1+\epsilon)m(E)$ for any $\epsilon>0$. Then $m(E)=m(\cup_k (E\cap I_k))\le\sum_k\alpha m(I_k)\le\alpha(1+\epsilon)(E)$, contradiction. If $E$ is not bounded, by $\sigma$-finiteness, one may write $E=\cup_k E_k$ where $m(E_k)<\infty$ for each $k$. Take $E_i$ such that $m(E_i)>0$. Then for any $\alpha<1$ there is an interval $I$ such that $m(E\cap I)\ge m(E_i\cap I)>\alpha m(I)$. 
 \end{proof}
-\subsection*{Exercise 31}
+\paragraph{Exercise 31}
 If $E\in\mathcal{L}$ and $m(E)>0$, the set $E-E=\{x-y:x,y\in E\}$ contains an interval centered at $0$.
 \begin{proof}
     By exercise 30, there is an interval $I=(x_0-\alpha,x_0+\alpha)$ such that $m(E\cap I)>3/4 m(I)$. Suppose there is a $\delta$ such that $0\le\delta<a$ and $\delta\not\in E-E$. Then for any pair $x,y\in E$, $x-y\neq\delta$. Let $E_1=E\cap(x_0-a,x_0]$, $E_2=E\cap(x_0,x_0+a)$. Then $\forany x\in E_1$, $x+\delta\in I$ but not in $E$. Therefore $E_1+\delta\subset I\backslash E$. Similarly $E_2-\delta\subset I\backslash E$. Then $m(E\cap I)\le m(E_1)+m(E_2)\le 2(m(I)-m(I\cap E))<2/3m(E\cap I)$, contradiction. Therefore $\delta\in E-E$ and $-\delta\in E-E$, $(-\alpha,\alpha)\subset E-E$.
 \end{proof}
-\subsection*{Exercise 33}
+\paragraph{Exercise 33}
 There exists a Borel set $A\subset[0,1]$ such that $0<m(A\cap I)<m(I)$ for every subinterval $I$ of $[0,1]$.
 \begin{proof}
     Enumerate the subintervals of $I$ with rational endpoints. Then construct a series of cantor sets. For $I_1$, split it into two disjoint intervals with finite measure. Then on each subinterval contruct a Cantor set $K_1,K_1'$, both with finite measure. Next assume that $K_1,\cdots,K_n$ and $K_1',\cdots,K_n'$ are already given for $I_1,\cdots,I_n$. Let $L_n=(K_1\cup\cdots\cup K_n)\cup(K_1'\cup\cdots\cup K_n')$, then $L_n$ is compact and totally disconnected. Therefore $I_{n+1}\backslash L_n$ must contain some intervals, namely $J_{n+1}$. Then split $J_{n+1}$ and construct $K_{n+1}$ and $K'_{n+1}$ on each subinterval. Let $K=\cup_n K_n$ and then obviously $K'_n$ is disjoint from $K$ for any $n$. Since $K$ is the union of some Cantor sets, it is a borel set.

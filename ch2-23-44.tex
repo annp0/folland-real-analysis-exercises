@@ -1,4 +1,4 @@
-\subsection*{Exercise 25}
+\paragraph{Exercise 25}
 Let $f(x)=x^{-1/2}$ if $0<x<1$, $f(x)=0$ otherwise. Let $\{r_n\}^\infty_1$ be an enumeration of the rationals, and set $g(x)=\sum^\infty_12^{-n}f(x-r_n)$.
 \par (a) $g\in L^1(m)$, and in particular $g<\infty$ a.e.
 \par (b) $g$ is discontinuous at every point and unbounded on every interval, and it remains so after any modification on a Lebesgue null set.
@@ -24,7 +24,7 @@ Let $f(x)=x^{-1/2}$ if $0<x<1$, $f(x)=0$ otherwise. Let $\{r_n\}^\infty_1$ be an
     $$
     where $\int f^2(x-r_n)=\infty$ follows the same argument as (a).
 \end{proof}
-\subsection*{Exercise 32}
+\paragraph{Exercise 32}
 Suppose $\mu(X)<\infty$. If $f$ and $g$ are complex valued measurable functions on $X$, define
 $$
 \rho(f,g)=\int\dfrac{|f-g|}{1+|f-g|}
@@ -49,7 +49,7 @@ Then $\rho$ is a metric on the space of measurable functions if we identify func
     $$
     therefore $\forany t>0$, take $\eta=\dfrac{\epsilon t}{1+\epsilon}$, then $\exist N$ such that $\mu(E_n)\le\eta\dfrac{1+\epsilon}{\epsilon}=t$.
 \end{proof}
-\subsection*{Exercise 33}
+\paragraph{Exercise 33}
 If $f_n\ge 0$ and $f_n\to f$ in measure, then $\int f\le\liminf\int f_n$. 
 \begin{proof}
     Recall that given a sequence of real numbers $\{a_{n}\}$, there exist a subsequence $\{a_{n_k}\}$ such that $a_{n_k}\to L$ for any $\liminf a_n\le L\le\limsup a_n$. Then there is a subsequence $\int f_{n_k}$ such that $\lim\int f_{n_k}=\liminf\int f_n$. Obviously $f_{n_k}\to f$ in measure, therefore there is a subsequence $f_{n_{k_i}}$ that converges to $f$ a.e. Therefore by Fatou's Lemma,
@@ -57,7 +57,7 @@ If $f_n\ge 0$ and $f_n\to f$ in measure, then $\int f\le\liminf\int f_n$.
     \int f=\int\liminf_i f_{n_{k_i}}\le\liminf_i\int f_{n_{k_i}}=\lim_k\int f_{n_k}=\liminf\int f_n
     $$
 \end{proof}
-\subsection*{Exercise 34}
+\paragraph{Exercise 34}
 Suppose $|f_n|\le g\in L^1$ and $f_n\to f$ in measure,
 \par (1) $\int f=\lim\int f_n$,
 \par (2) $f_n\to f$ in $L^1$.
@@ -72,17 +72,17 @@ Suppose $|f_n|\le g\in L^1$ and $f_n\to f$ in measure,
     therefore $\int f=\lim\int f_n$.
     \par (b) Obviously $|f_n-f|$ converges to $0$ in measure. Since $|f_n-f|\le|f_n|+|f|\le 2|g|\in L^1$, by (a), $\lim\int|f_n-f|=0$, $f_n\to f$ in $L^1$.
 \end{proof}
-\subsection*{Exercise 35}
+\paragraph{Exercise 35}
 $f_n\to f$ in measure iff for every $\epsilon>0$ there exist $N\in\mathbb{N}$ such that $\mu(\{x:|f_n(x)-f(x)|\ge\epsilon\})\le\epsilon$ for $n\ge N$.
 \begin{proof}
     For any $\epsilon,\eta>0$, suppose $\eta<\epsilon$, then $\exist N$ such that $\forany n\ge N$, $\mu(\{x:|f_n(x)-f(x)|>\epsilon\})\le\mu(\{x:|f_n(x)-f(x)|>\eta\})<\eta$. The reverse direction is trivial.
 \end{proof}
-\subsection*{Exercise 36}
+\paragraph{Exercise 36}
 If $\mu(E_n)<\infty$ for $n\in\mathbb{N}$ and $\chi_{E_n}\to f\in L^{1}$, then $f$ is a.e. equal to the characteristic function of a measurable set.
 \begin{proof}
     Since $\chi_{E_n}\to f$ in $L^1$, there exists a subsequence $\chi_{E_{n_k}}\to f$ a.e. Therefore there is a measurable function $g$ such that $g=f$ a.e. Since $f$ and $g$ can only take values 0 or 1, $f=\chi_{g^{-1}\{1\}}$ a.e.
 \end{proof}
-\subsection*{Exercise 37}
+\paragraph{Exercise 37}
 Suppose that $f_n$ and $f$ are measurable compelx-valued functions and $\phi:\mathbb{C}\to\mathbb{C}$.
 \par (a) If $\phi$ is continuous and $f_n\to f$ a.e., then $\phi\circ f_n\to\phi\circ f$ a.e.
 \par (b) If $\phi$ is uniformly continuous and $f_n\to f$ uniformly, almost uniformly, or in measure, then $\phi\circ f_n\to\phi\circ f$, uniformly, almost uniformly, or in measure, respectively.
@@ -100,7 +100,7 @@ Suppose that $f_n$ and $f$ are measurable compelx-valued functions and $\phi:\ma
     the proof is done since $\mu(\{x:|f_n(x)-f(x)|<\eta\})\to 0$
     \par (c) Give $f_n=e^{-n}$, $f_n\to f$ uniformly, suppose $\phi=\ln x$, then $\phi\circ f_n=-n$, which is anywhere divergent.
 \end{proof}
-\subsection*{Exercise 38}
+\paragraph{Exercise 38}
 Suppose $f_n\to f$ in measure and $g_n\to g$ in measure.
 \par (a) $f_n+g_n\to f+g$ in measure.
 \par (b) $f_ng_n\to fg$ in measure if $\mu(X)<\infty$, but not necessarily if $\mu(X)=\infty$.
@@ -124,7 +124,7 @@ Suppose $f_n\to f$ in measure and $g_n\to g$ in measure.
     $$
     therefore $\forany\nu>0$, take $N$ and $n$ such that $\mu(\{x:|f|>N\})<\nu/2$ and $\mu(\{x:|g_n-g|>\epsilon/3N\}<\nu/2$, it can be seen that $\mu(\{x:|f||g_n-g|>\epsilon/3\})\to 0$, similarly $\mu(\{x:|g||f_n-f|>\epsilon/3\})\to 0$, the proof is done.
 \end{proof}
-\subsection*{Exercise 39}
+\paragraph{Exercise 39}
 If $f_n\to f$ almost uniformly, then $f_n\to f$ a.e. and in measure.
 \begin{proof}
     Since $f_n\to f$ almost uniformly, $\forany n\in\mathbb{N}$, $\exist E_n\subset X$ such that $\mu(E_n)<1/n$ and $f_n\to f$ uniformly on $E_n^c$. Then obviously $E=\cap_nE_n$ has zero measure by continuity from below, and $f_n\to f$ on $E^c$. Therefore $f_n\to f$ a.e. 
@@ -134,7 +134,7 @@ If $f_n\to f$ almost uniformly, then $f_n\to f$ a.e. and in measure.
     $$
     therefore $f_n\to f$ in measure.
 \end{proof}
-\subsection*{Exercise 40}
+\paragraph{Exercise 40}
 In Egoroff's theorem, the hypothesis ``$\mu(X)<\infty$'' can be replaced by ``$|f_n|\le g$ for all $n$, where $g\in L^1(\mu)$''.
 \begin{proof}
     Without loss of generality, assume $f_n\to f$ for all $x\in X$. For $k,n\in\mathbb{N}$, let 
@@ -143,7 +143,7 @@ In Egoroff's theorem, the hypothesis ``$\mu(X)<\infty$'' can be replaced by ``$|
     $$
     then for fixed $k$, $E_n$ is a decreasing sequence. For $x\in X$, if $x\in E_1(k)$, then $\exist m$ such that $|f_m-f|\ge 1/k$. Therefore $1/k\le|f_m+f|\le 2g$, $\int 1/2k\chi_{E_{1}(k)}=1/2k\mu(E_{1}(k))\le\int g$. Since $g\in L^1$, $\mu(E_{1}(k))<\infty$. Therefore by continuity from below, $\mu(E_n(k))\to 0$. Given $\epsilon>0$ and $k\in\mathbb{N}$, choose $n_k$ so large that $\mu(E_{n_k}(k))\le\epsilon 2^{-k}$, and let $E=\cup_kE_{n_k}(k)$. Then $\mu(E)\le\epsilon$, and $|f_n-f|\le 1/k$ for $n>n_k$ and $x\in E^c$.
 \end{proof}
-\subsection*{Exercise 41}
+\paragraph{Exercise 41}
 If $\mu$ is $\sigma$-finite and $f_n\to f$ a.e., there exist measurable $E_1,E_2,\cdots\subset X$ such that $\mu((\cup^\infty_1E_j)^c)=0$ and $f_n\to f$ uniformly on each $E_j$.
 \begin{proof}
     Suppose $\mu(X)<\infty$, then by Egoroff's theorem, for each $k\in\mathbb{N}$, $\exist E_k$ such that $\mu(E_k^c)<1/k$ and $f_n\to f$ uniformly on $E_k$. Let $F_n=\cup_1^n E_k$, then $F_n^c$ is a decreasing sequence, therefore
@@ -157,7 +157,7 @@ If $\mu$ is $\sigma$-finite and $f_n\to f$ a.e., there exist measurable $E_1,E_2
     $$
     $\{E^i_k\}$ gives the desired sequence.
 \end{proof}
-\subsection*{Exercise 42}
+\paragraph{Exercise 42}
 Let $\mu$ be the counting measure on $\mathbb{N}$. Then $f_n\to f$ in measure iff $f_n\to f$ uniformly.
 \begin{proof}
     Suppose $f_n\to f$ in measure. Then $\forany\epsilon>0$, $\exist N\in\mathbb{N}$ such that if $n>N$,
@@ -166,7 +166,7 @@ Let $\mu$ be the counting measure on $\mathbb{N}$. Then $f_n\to f$ in measure if
     $$
     therefore $|f_n-f|<\epsilon$ for each $x\in\mathbb{N}$, hence $f_n\to f$ uniformly. Conversely, if $\forany\epsilon>0$, $\exist N\in\mathbb{N}$ such that if $n>N$, $|f_n-f|<\epsilon$ for each $x\in\mathbb{N}$, then $\mu(\{x:|f_n-f|>\epsilon\})=0$.
 \end{proof}
-\subsection*{Exercise 44}
+\paragraph{Exercise 44}
 If $f:[a,b]\to\mathbb{C}$ is Lebesgue measurable and $\epsilon>0$, there is a compact set $E\subset[a,b]$ such that $\mu(E^c)<\epsilon$ and $f|_E$ is continuous.
 \begin{proof}
     For each $n\in\mathbb{N}$, let $E_n=f^{-1}(B_n(0))$. Then

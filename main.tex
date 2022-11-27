@@ -17,13 +17,6 @@
 \newcommand{\D}{\mathrm{D}}
 \newcommand{\exist}{\exists\,}
 \newcommand{\forany}{\forall\,}
-\makeatletter
-\def\@seccntformat#1{%
-  \expandafter\ifx\csname c@#1\endcsname\c@section\else
-  \csname the#1\endcsname\quad
-  \fi}
-\makeatother
-\makeatletter
 \begin{document}
     \maketitle
     \tableofcontents
@@ -32,4 +25,5 @@
     \input{ch2-1-22.tex}
     \input{ch2-23-44.tex}
     \input{ch2-44-65.tex}
+    \input{ch3-1-22.tex}
 \end{document}

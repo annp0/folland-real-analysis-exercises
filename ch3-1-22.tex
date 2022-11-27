@@ -1,0 +1,92 @@
+\section{Chapter 3: Signed Measures and Differentiation}
+\paragraph*{Exercise 1}
+Prove Proposition 3.1.
+\begin{proof}
+    Suppose $\{E_j\}$ an increasing sequence, $F_j=E_j\backslash\cup_1^{j-1}E_i$, since $\mu(E_j)=\sum_{k=1}^{n}\mu(F_k)$,
+    $$
+    \mu(\cup_jE_j)=\mu(\cup_jF_j)=\sum_j\mu(F_j)=\lim\mu(E_j)
+    $$
+    Suppose $\{E_j\}$ an decreasing sequence, since $\mu(E_1)<\infty$,
+    $$
+    \mu(\cap_jE_j)=\mu(E_1\backslash(E_1\backslash\cap_jE_j))=\mu(E_1)-\mu(\cup_j(E_1\backslash E_j))=\mu(E_1)-\lim(\mu(E_1)-\mu(E_j))=\lim\mu(E_j)
+    $$
+\end{proof}
+\paragraph*{Exercise 3}
+Let $\nu$ be a signed measure on $(X,\mathcal{M})$.
+\par (a) $L^1(\nu)=L^1(|\nu|)$
+\par (b) If $f\in L^1(\nu)$, $|\int fd\nu|\le\int|f|d|\nu|$
+\par (c) If $E\in\mathcal{M}$, $|\nu|(E)=\sup\{|\int_Efd\nu|:|f|\le 1\}$.
+\begin{proof}
+    (a) Let $\phi\in L^1$ be a simple function, and write $\phi=\sum^n_{i=1}a_i\chi_{E_i}$, then
+    $$
+    \int\phi d|\nu|=\sum^n_{i=1}a_i|\nu|(E_i)=\sum^n_{i=1}a_i(\nu^+(E_i)+\nu^-(E_i))=\int\phi d\nu^++\int\phi d\nu^-
+    $$
+    since for any $f\in L^1(\nu)$, $f\in L^1(\nu^+)\cap L^1(\nu^-)$, thus
+    $$
+    \int|f|d|v|=\left\{\int\phi d|\nu|:\phi\in L^+\text{ simple, }\phi\le|f|\right\}=\int|f|dv^++\int|f|dv^-\le\infty
+    $$
+    hence $L^1(\nu)\subset L^1(|\nu|)$. The converse is obviously true.
+    \par (b)
+    $$
+    \left|\int fd\nu\right|=\left|\int fd\nu^+-\int fd\nu^-\right|=\left|\int fd\nu^+-\int fd\nu^-\right|\le\int|f|dv^++\int|f|dv^-=\int|f|d|\nu|
+    $$
+    \par (c) Suppose $g=\chi_B-\chi_A$, where $A$ and $B$ are the hahn decomposition of $\nu$. Then
+    $$
+    \int_Egd\nu=\int(\chi_B-\chi_A)\chi_Ed\nu=\int\chi_{B\cap E}d\nu^++\int\chi_{A\cap E}\nu^-=\nu^+(E)+\nu^-(E)=|\nu|(E)
+    $$
+    If $|\nu|(E)=\infty$, the proof is done. Otherwise assume that $|\nu|(E)<\infty$, and let $f$ be a measurable function with $|f|\le 1$. Then $|\int_Efd\nu|\le\int_E|f|d|\nu|\le|\nu|(E)$. Therefore
+    $$
+    |\nu|(E)\le\left\{|\int_Efd\nu|:|f|\le 1\right\}\le|\nu|(E)
+    $$
+    the proof is complete.
+\end{proof}
+\paragraph*{Exercise 4}
+If $\nu$ is a signed measure and $\lambda,\mu$ are positive measures such that $\nu=\lambda-\mu$, then $\lambda\ge\nu^+$ and $\mu\ge\nu^-$.
+\begin{proof}
+    Suppose hahn decomposition $A,B$ for $\nu$, then $\forany E\in\mathcal{M}$,
+    $$
+    \lambda(E)\ge\lambda(E\cap B)\ge\nu(E\cap B)=\nu^+(E\cap B)\ge\nu(E)
+    $$
+    the same argument goes for $\mu\ge\nu^-$.
+\end{proof}
+\paragraph*{Exercise 5}
+If $\nu_1$, $\nu_2$ are signed measures that both omit the value $+\infty$ or $-\infty$, then $|\nu_1+\nu_2|\le|\nu_1|+|\nu_2|$.
+\begin{proof}
+    Obviously $\nu_1+\nu_2$ is still a signed measure, and $\nu_1+\nu_2=(\nu_1^++\nu_2^+)-(\nu_1^-+\nu_2^-)$. By exercise 4, $(\nu_1^++\nu_2^+)\ge(\nu_1+\nu_2)^+$ and $(\nu_1^-+\nu_2^-)\ge(\nu_1+\nu_2)^-$. Therefore
+    $$
+    |\nu_1+\nu_2|=(\nu_1+\nu_2)^++(\nu_1+\nu_2)^-\le (\nu_1^++\nu_2^+)+(\nu_1^-+\nu_2^-)=|\nu_1|+|\nu_2|
+    $$
+\end{proof}
+\paragraph*{Exercise 6}
+Suppose $\nu(E)=\int_E fd\mu$ where $\mu$ is a positive measure and $f$ is an extended $\mu$-integrable function. Describe the Hahn decompositions of $\nu$ and the positive, negative, and total variations of $\nu$ in terms of $f$ and $\mu$.
+\begin{solution}
+    $P=\{x:f(x)\ge 0\}$, $N=\{x:f(x)<0\}$. $\nu^+=\int_{E\cap P}fd\nu$, $\nu^-=-\int_{E\cap N}fd\nu$, $|\nu|=\nu^++\nu^-$.
+\end{solution}
+\paragraph*{Exercise 7}
+Suppose that $\nu$ is a signed measure on $(X,\mathcal{M})$ and $E\in\mathcal{M}$.
+\par (a) $\nu^+(E)=\sup\{\nu(F):F\in\mathcal{M},F\subset E\}$ and $\nu^-(E)=-\inf\{\nu(F):F\in\mathcal{M},F\subset E\}$.
+\par (b) $|\nu|(E)=\sup\{\sum^n_1|\nu(E_j)|:n\in\mathbb{N},\text{$E_1,\cdots,E_n$ are disjoint, and $\cup^n_1E_j=E$}\}$.
+\begin{proof}
+    (a) Let $A$ and $B$ be the hahn decomposition. Then
+    $$
+    \nu^+(E)=\nu^+(E\cap P)\le\sup\{\nu(F):F\subset E\}
+    $$
+    moreover, if $F\subset E$, then
+    $$
+    \nu(F)=\nu^+(F)\le\nu^+(E)
+    $$
+    therefore
+    $$
+    \nu^+(E)=\sup\{\nu(F):F\subset E\}
+    $$
+    the similar argument works for $v^-(E)$.
+    \par (b) Denote RHS with $t$.
+    $$
+    |\nu|(E)=|\nu(E\cap A)|+|\nu(E\cap B)|\le t
+    $$
+    moreover, 
+    $$
+    \sum^n_1|\nu(E_j)|\le\sum^n_1(\nu^+(E_j)+\nu^-(E_j))=\nu^+(E)+\nu^-(E)=|\nu|(E)
+    $$
+    the proof is complete.
+\end{proof}

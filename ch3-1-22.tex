@@ -90,3 +90,87 @@ Suppose that $\nu$ is a signed measure on $(X,\mathcal{M})$ and $E\in\mathcal{M}
     $$
     the proof is complete.
 \end{proof}
+\paragraph*{Exercise 8}
+$\nu\ll\mu$ iff $|\nu|\ll\mu$ iff $\nu^+\ll\mu$ and $\nu^-\ll\mu$.
+\begin{proof}
+    Suppose $\mu(E)=0$, then $|\nu|(E)=0$ iff $\nu^+(E)=\nu^-(E)=0$. If $\nu\ll\mu$, since $\forany F\in\mathcal{M}$ that is contained in $E$, $\nu(F)=\mu(F)=0$, by exercise 2, $|\nu|(E)=0$. The converse is trivial.
+\end{proof}
+\paragraph*{Exercise 9}
+Suppose $\{v_j\}$ is a sequence of positive measures. If $\nu_j\perp\mu$ for all $j$, then $\sum^\infty_1\nu_j\perp\mu$; and if $\nu_j\ll\mu$ for all $j$, then $\sum^\infty_1\nu_j\ll\mu$.
+\begin{proof}
+    The second part is trivial by countable additivity. For the first part, denote $E_j$ the $\nu_j$-null set and $E_j^c$ the $\mu$-null set, then $\cap_jE_j$ is $\sum^\infty_1\nu_j$-null and $(\cap_jE_j)^c$ is $\mu$-null.
+\end{proof}
+\paragraph*{Exercise 10}
+Theorem 3.5 may fail when $\nu$ is not finite.
+\begin{solution}
+    Take $d\nu(x)=dx/x$ and $d\mu(x)=dx$ on $(0,1)$. Then obviously $\nu\ll\mu$, but consider $E_n=(0,1/n)$, obviously $\nu(E_n)>1$.
+\end{solution}
+\paragraph*{Exercise 11}
+Let $\mu$ be a positive measure. A collection of functions $\{f_\alpha\}_{\alpha\in A}\subset L^1(\mu)$ is called uniformly integrable if for every $\epsilon>0$ there exists $\delta>0$ such that $|\int_Ef_\alpha d\mu|<\epsilon$ for all $\alpha\in A$ whenever $\mu(E)<\delta$.
+\par (a) Any finite subset of $L^1(\mu)$ is uniformly integrable.
+\par (b) If $\{f_n\}$ is a sequence in $L^1(\mu)$ that converges in the $L^1$ metric to $f\in L^1(\mu)$, then $\{f_n\}$ is uniformly integrable.
+\begin{proof}
+    (a) Since $f\in L^1(\mu)$, the finite signed measure $E\mapsto\int_E fd\mu$ is absolutely continuous with respect to $\mu$. Therefore for any $\epsilon>0$, $\exist\delta_\alpha$ such that $|\int_Ef_\alpha d\mu|<\epsilon$ when $\mu(E)<\delta_\alpha$. Just take $\delta=\min\{\delta_\alpha\}>0$.
+    \par (b) For any $\epsilon>0$, there exists $N\in\mathbb{N}$ such that $\int|f_n-f|d\mu<\epsilon/2$ for any $n\ge N$. Let $I=\{0,1,2,\cdots,N\}$ (with $f_0=f$), then $\{f_i\}_{i\in I}$ is uniformly integrable. Therefore $\exist \delta>0$ such that $|\int_Ef_id\mu|<\epsilon/2$ for any $i\in I$ with $\mu(E)<\delta$. Then for $i\in\mathbb{N}\backslash I$,
+    $$
+    \left|\int_Ef_nd\mu\right|=\left|\int_E(f_n-f)d\mu+\int_Efd\mu\right|\le\left|\int_E(f_n-f)d\mu\right|+\left|\int_E fd\mu\right|\le\epsilon
+    $$
+\end{proof}
+\paragraph*{Exercise 12}
+For $j=1,2$, let $\mu_j,\nu_j$ be $\sigma$-finite measures on $(X_j,\mathcal{M}_j)$ such that $\nu_j\ll\mu_j$. Then $\nu_1\times\nu_2\ll\mu_1\times\mu_2$, and
+$$
+\dfrac{d(\nu_1\times\nu_2)}{d(\mu_1\times\mu_2)}(x_1,x_2)=\dfrac{d\nu_1}{d\mu_1}(x_1)\dfrac{d\nu_2}{d\mu_2}(x_2)
+$$
+\begin{proof}
+    If $(\mu_1\times\mu_2)(E)=0$, then
+    $$
+    0=\int\mu_2(E^{x_1})d\mu_1(x_1)
+    $$
+    therefore $\mu_2(E^{x_1})$ is $\mu_1$ a.e. and hence $\nu_2(E^{x_1})$ is $\nu_1$ a.e., then
+    $$
+    (\nu_1\times\nu_2)(E)=\int\nu_2(E^{x_1})d\nu_1(x_1)=0
+    $$
+    The second part is verified by
+    \begin{align*}
+        (\nu_1\times\nu_2)(E)&=\int f\chi_Ed(\mu_1\times\mu_2)=\int\left[\int f\chi_E d\mu_2(x_2)\right]d\mu_1(x_1)\\
+        &=\int\nu_2(E^{x_1})d\nu_1(x_1)=\int\left[\int_E\dfrac{d\nu_2}{d\mu_2}(x_2)d\mu_2(x_2)\right]d\nu_1(x_1)\\
+        &=\int\left[\int\chi_E\dfrac{d\nu_1}{d\mu_1}(x_1)\dfrac{d\nu_2}{d\mu_2}(x_2)d\mu_2(x_2)\right]d\mu_1(x_1)
+    \end{align*}
+\end{proof}
+\paragraph*{Exercise 13}
+Let $X=[0,1]$, $\mathcal{M}=\mathcal{B}_{[0,1]}$, $m$ is the Lebesgue measure, and $\mu$ is the counting measure on $\mathcal{M}$.
+\par(a) $m\ll\mu$ but $dm\neq fd\mu$ for any $f$.
+\par(b) $\mu$ has no Lebesgue decomposition with respect to $m$.
+\begin{proof}
+    (a) The first part is trivial. Suppose there exists such $f$, then $m(\{x\})=f(x)=0$, therefore $f=0$ and
+    $$
+    1=m(X)=\int_Xfd\mu=0
+    $$
+    contradiction.
+    \par (b) Suppose that $\mu$ has a Lebesgue decomposition $\lambda+\rho$ with respect to $m$, with $\lambda\perp m$ and $\rho\ll m$. Then $\rho(\{x\})=0$, and $\lambda(\{x\})=1$. Suppose $X=A\sqcup B$ the Lebesgue decomposition with $\lambda(A)=m(B)=0$. Then $A=\varnothing$, then $m(B)=m(X)=1$, contradiction.
+\end{proof}
+\paragraph*{Exercise 16}
+Suppose that $\mu,\nu$ are $\sigma$-finite measures on $(X,\mathcal{M})$ with $\nu\ll\mu$, and let $\lambda=\mu+\nu$. If $f=d\nu/d\lambda$, then $0\le f<1$ $\nu$-a.e. and $d\nu/d\mu=f/(1-f)$.
+\begin{proof}
+    Let $E_n=\{x:f(x)<-1/n\}$. Therefore
+    $$
+    -n^{-1}\lambda(E_n)\ge\int_{E_n}fd\lambda=\nu(E_n)\ge 0
+    $$
+    and hence $\mu(E_n)\le\lambda(E_n)=0$. It follows that $\mu(\cup^\infty_1E_n)=0$, so $f\ge 0$ $\mu$-a.e. Set $F=\{x:f(x)\ge 1\}$. Since $\nu$ is $\sigma$-finite, there is a sequence $F_n$ of subsets of $F$ which cover $F$ such that $\nu(F_n)<\infty$ for each $n$. Because
+    $$
+    \nu(F_n)=\int_{F_n}fd\lambda\ge\int_{F_n}1d\lambda=\lambda(F_n)=\mu(F_n)+\nu(F_n)
+    $$
+    $\mu(F_n)=0$. Thus $\mu(F)=0$ and $f<1$ $\mu$-a.e. Therefore $f,1-f\in L^+$, so for each $E\in\mathcal{M}$,
+    $$
+    \int_E(1-f)d\lambda+\nu(E)=\int_E1d\lambda=\lambda(E)=\mu(E)+\nu(E)
+    $$
+    Thus $\int_E(1-f)d\lambda=\mu(E)$ for any $\nu(E)<\infty$. This result extends to all $E\in\mathcal{M}$ since $\nu$ is $\sigma$-finite. Thus $d\mu/d\lambda=(1-f)$. Therefore
+    $$
+    \dfrac{d\nu}{d\mu}=\dfrac{d\nu}{d\lambda}\dfrac{d\lambda}{d\nu}=\dfrac{f}{1-f}
+    $$
+\end{proof}
+\paragraph*{Exercise 17}
+Let $(X,\mathcal{M},\mu)$ be a finite measure space, $\mathcal{N}$ a sub-$\sigma$-algebra of $\mathcal{M}$, and $\nu=\mu|\mathcal{N}$. If $f\in L^1(\mu)$, there exists $g\in L^1(\nu)$ such that $\int_Efd\mu=\int_Egd\nu$ for all $E\in\mathcal{N}$; if $g'$ is another such function then $g=g'$ $\nu$-a.e.
+\begin{proof}
+    Define $\lambda$ on $\mathcal{N}$ by $\lambda(E)=\int_Efd\mu$, since $\rho\ll\nu$, the rest is obvious by the Radon-Nikodym theorem.
+\end{proof}

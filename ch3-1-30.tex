@@ -174,3 +174,185 @@ Let $(X,\mathcal{M},\mu)$ be a finite measure space, $\mathcal{N}$ a sub-$\sigma
 \begin{proof}
     Define $\lambda$ on $\mathcal{N}$ by $\lambda(E)=\int_Efd\mu$, since $\rho\ll\nu$, the rest is obvious by the Radon-Nikodym theorem.
 \end{proof}
+\paragraph*{Exercise 18}
+Prove Proposition 3.13c.
+\begin{proof}
+    The second part is obvious:
+    $$
+    \left|\int fd\nu\right|=\left|\int f\dfrac{d\nu}{d|\nu|}d|\nu|\right|\le\int\left|f\right|d|\nu|
+    $$
+    Suppose $d\nu=gd\mu$. Since 
+    $$
+    \int |f|d\nu=\int|f|gd\mu\le\int|fg|d\mu=\int |f|d|\nu|
+    $$
+    $L^1(|\nu|)\subset L^1(\nu)$. Conversely, suppose $f\in L^1(\nu)$, let $\nu=\nu_r+\nu_i$ where $\nu_r$ and $\nu_i$ are real and imaginaty part of $\nu$, then $f\in L^1(|\nu_r|+|\nu_i|)$. Therefore
+    $$
+    \int|f|d|\nu|\le\int|f|(d|\nu_r|+d|\nu_i|)\le\infty
+    $$
+    which concludes $L^1(|\nu|)\subset L^1(\nu)$.
+\end{proof}
+\paragraph*{Exercise 19}
+If $\nu,\mu$ are complex measures and $\lambda$ is a positive measure, then $\nu\perp\mu$ iff $|\nu|\perp|\mu|$ and $\nu\ll\lambda$ iff $|\nu|\ll\lambda$.
+\begin{proof}
+    Suppose $\rho=|\nu_r|+|\nu_i|+|\mu_r|+|\mu_i|$, and $d\nu=f_1d\rho$, $d\mu=f_2d\rho$. If $\nu\perp\mu$, suppose the corresponding null sets be $P$ and $N$. Obviously $\nu$ is null on $P$ iff $|\nu|$ is null on $P$, similarly for $\mu$. For the second part, suppose $\lambda(E)=0$, if $\nu(E)=0$, then for any $A\subset E$ that is measurable,
+    $$
+    \lambda(A)=0=\int_Af_1d\rho
+    $$
+    therefore 
+    $$
+    \int_E|f_1|d\rho=|\nu|(E)=0
+    $$
+    which completes the proof.
+\end{proof}
+\paragraph*{Exercise 20}
+If $\nu$ is a complex measure on $(X,\mathcal{M})$ and $\nu(X)=|\nu|(X)$, then $\nu=|\nu|$.
+\begin{proof}
+    Suppose $d\nu=fd\mu$. Then for any measurable set $E\subset X$,
+    $$
+    \nu(E)+\nu(E^c)=|\nu|(E)+|\nu|(E^c)
+    $$
+    therefore
+    $$
+    \int_Efd\mu+\int_{E^c}fd\mu=\int_E|f|d\mu+\int_{E^c}|f|d\mu,\quad \int_E(f-|f|)d\mu=\int_{E^c}(|f|-f)d\mu
+    $$
+    Let $f=f_r+if_i$, where $f_r$ and $f_i$ are real functions. Then
+    $$
+    \int_E(f_r-|f|)d\mu+i\int_Ef_id\mu=\int_{E^c}(|f|-f_r)d\mu-i\int_{E^c} f_id\mu
+    $$
+    by comparing the real part and since $f_r\le|f|$,
+    $$
+    \int_E(f_r-|f|)d\mu=\int_{E^c}(|f|-f_r)d\mu=0
+    $$
+    therefore $|f|=f_r$ $\mu$-a.e. Thus
+    $$
+    |\nu|(E)=\int_E|f|d\mu=\int_E fd\mu=\nu(E)
+    $$
+\end{proof}
+\paragraph*{Exercise 21}
+Let $\nu$ be a complex measure on $(X,\mathcal{M})$. If $E\in\mathcal{M}$, define
+\begin{align*}
+    \mu_1(E)&=\sup\left\{\sum^n_1|\nu(E_j)|:\text{$n\in\mathbb{N}$, $E_1,\cdots,E_n$ disjoint, $E=\bigcup^n_1E_j$}\right\},\\
+    \mu_2(E)&=\sup\left\{\sum^\infty_1|\nu(E_j)|:\text{$n\in\mathbb{N}$, $E_1,\cdots$ disjoint, $E=\bigcup^\infty_1E_j$}\right\},\\
+    \mu_3(E)&=\sup\left\{\left|\int_Efd\mu\right|:|f|\le 1\right\}.
+\end{align*}
+Then $\mu_1=\mu_2=\mu_3=|\nu|$.
+\begin{proof}
+    It is obvious that $\mu_1\le\mu_2$. To see that $\mu_2\le\mu_3$, let
+    $$
+    f=\sum^\infty_{k=1}\dfrac{\overline{\nu(E_k)}}{|\nu(E_k)|}\chi_{E_k}
+    $$
+    obviously $|f|\le 1$. Suppose $a\in\{r,i\}$ and $b\in\{+,-\}$ then $1\in L^1(\nu^b_a)$. Therefore by DCT,
+    $$
+    \int fd\nu^b_a=\lim_{n\to\infty}\int\sum^n_{k=1}\dfrac{\overline{\nu(E_k)}}{|\nu(E_k)|}\chi_{E_k}d\nu^b_a=\sum^\infty_{k=1}\dfrac{\overline{\nu(E_k)}}{|\nu(E_k)|}\nu^b_a(E_k)
+    $$
+    It follows that
+    \begin{align*}
+        \int fd\nu&=\int fd\nu_r+i\int fd\nu_i=\int fd\nu_r^+-\int fd\nu_r^-+i\int fd\nu^+_i-i\int fd\nu^-_i\\
+        &=\sum^\infty_{k=1}\dfrac{\overline{\nu(E_k)}}{|\nu(E_k)|}\nu(E_k)=\sum^\infty_{k=1}|\nu(E_k)|
+    \end{align*}
+    Now show that $\mu_3=|\nu|$. Let $f=\overline{d\nu/d|\nu|}$. By prop 3.13,
+    $$
+    \int_E fd\nu=\int_E f\overline{f}d|\nu|=|\nu|(E)\le\mu_3(E)\le\left|\int_E 1d\nu\right|=|\nu(E)|\le|\nu|(E)
+    $$
+    It remains to show that $\mu_3(E)\le\mu_1(E)$. Suppose $|f|\le 1$, then there exists a increasing sequence $\phi_k$ of simple functions which converges pointwise to $f$. Let
+    $$
+    \phi_k=\sum^{n_k}_{j=1}c_{kj}\chi_{E_{kj}}
+    $$
+    be the standard representation of $\phi_k$. By DCT,
+    $$
+    \int_Efd\nu^b_a=\lim_{k\to\infty}\sum^{n_k}_{j=1}c_{kj}\nu^b_a(E_{kj}\cap E)
+    $$
+    hence
+    $$
+    \int_Efd\nu=\lim_{k\to\infty}\sum^{n_k}_{j=1}c_{kj}\nu(E_{kj}\cap E)
+    $$
+    thus
+    $$
+    \left|\int_Efd\nu\right|=\lim_{k\to\infty}\left|\sum^{n_k}_{j=1}c_{kj}\nu(E_{kj}\cap E)\right|\le\lim_{k\to\infty}\sum^{n_k}_{j=1}|\nu(E_{kj}\cap E)|\le\mu_1(E)
+    $$
+\end{proof}
+\paragraph*{Exercise 22}
+If $f\in L^1(\mathbb{R}^n)$, $f\neq 0$, there exist $C,R>0$ such that $Hf(x)\ge C|x|^{-n}$ for $|x|>R$.
+\begin{proof}
+    If $||f||>0$, then there exists $R\in(0,\infty)$ such that $\int_{B_R(0)}|f|dm>0$. If $x\in\mathbb{R}^n\backslash B_R(0)$, then $B_R(0)\subset B_{2|x|}(x)$. Therefore
+    $$
+    Hf(x)\ge A_{2|x|}|f|(x)\ge \dfrac{1}{|x|^nm(B_2(0))}\int_{B_R(0)}|f|dm=C|x|^{-n}
+    $$
+    If $\alpha\in(0,C/2R^n)$ and $R<|x|<(C/\alpha)^{1/n}$, then $Hf(x)\ge\alpha$ and
+    $$
+    m(\{x:Hf(x)>\alpha\})\ge m(B_{(C/\alpha)^{1/n}})-m(B_R(0))>Cm(B_1(0))/2\alpha
+    $$
+\end{proof}
+\paragraph*{Exercise 23}
+A useful variant of the Hardy-Littlewood maximal function is
+$$
+H^*f(x)=\sup\left\{\dfrac{1}{m(B)}\int_B|f(y)|dy:\text{$B$ is a ball and $x\in B$}\right\}
+$$
+Show that $Hf\le H^*f\le 2^n Hf$.
+\begin{proof}
+    It is clear that $Hf(x)\le H^*f(x)$. For the other inequality, suppose $x\in B_r(y)$, then $B_r(y)\subset B_{2r}(x)$, by writing down definitions it is easy to see the inequality is true.
+\end{proof}
+
+\paragraph*{Exercise 24}
+If $f\in L^1_{\mathrm{loc}}$ and $f$ is continuous at $x$, then $x$ is in the Lebesgue set of $f$.
+\begin{proof}
+    Since $f$ is continuous at $x$, $\forany\epsilon>0$, there exists $r>0$ such that $|f(y)-f(x)|<\epsilon$ for any $y\in B_r(x)$. Therefore
+    $$
+    \dfrac{1}{m(B(r,x))}\int_{B(r,x)}|f(y)-f(x)|dy\le\dfrac{1}{m(B(r,x))}\int_{B(r,x)}\epsilon dy=\epsilon
+    $$
+    therefore $\lim_{r\to 0}A_r|f(y)-f(x)|=0$.
+\end{proof}
+\paragraph*{Exercise 25}
+If $E$ is a Borel set in $\mathbb{R}^n$, the density $D_E(x)$ of $E$ at $x$ is defined as
+$$
+D_E(x)=\lim_{r\to0}\dfrac{m(E\cap B(r,x))}{m(B(r,x))}
+$$
+whenever the limit exists.
+\par (a) Show that $D_E(x)=1$ for a.e. $x\in E$ and $D_E(x)=0$ for a.e. $x\in E^c$.
+\par (b) Find examples of $E$ and $x$ such that $D_E(x)$ is a given number $\alpha\in(0,1)$ or such that $D_E(x)$ does not exist.
+\begin{proof}
+    (a) Define $\mu(A)=m(E\cap A)$. Then $\mu=\chi_Edm$. Suppose $m(A)<\infty$, for any $\epsilon>0$, there exists an open set $U$ such that $m(U)<m(A)+\epsilon$. Therefore $\mu(U)<\mu(A)+\epsilon$. Now for any $A$ that is measurable, take $A_k$ such that $m(A_k)<\infty$ and $A=\cup_kA_k$. Then for each $k$ there exists an open set $U_k$ such that $\mu(U_k)<\mu(A_k)+2^{-k}\epsilon$. Thus $\mu(\cup_kU_k\backslash A)<\epsilon$, which implies that $\mu$ is regular. So for a.e. $x\in\mathbb{R}^n$,
+    $$
+    D_E(x)=\lim_{r\to 0}\dfrac{\mu(B_r(x))}{m(B_r(x))}=\chi_E(x)
+    $$
+    \par (b) Suppose $E=\{x:x_i>0\}$ and $x=0$. Then $D_E(x)=2^{-n}$.
+\end{proof}
+\paragraph*{Exercise 26}
+If $\lambda$ and $\mu$ are positive, mutually singular Borel measures on $\mathbb{R}^n$ and $\lambda+\mu$ is regular, then so are $\lambda$ and $\mu$.
+\begin{proof}
+    Condition (i) holds trivially. For condition (ii), since $\mu\perp\lambda$, suppose $P$ is $\mu$-null and $P^c$ is $\lambda$-null. Since $\lambda+\mu$ is regular, for any $E\subset P$ that is Borel measurable, there exists an open set $U$ such that $\lambda(U)<\lambda(U)+\mu(U)<\lambda(E)+\epsilon$ for any $\epsilon>0$, therefore $\lambda$ is regular. The same goes for $\mu$.
+\end{proof}
+\paragraph*{Exercise 27}
+Verify Example 3.25.
+\begin{proof}
+    (a) is obvious since $\lim_{x\to\infty}T_F(x)=F(\infty)-F(-\infty)<\infty$. 
+    \par (b) If $F,G\in BV$, then
+    $$
+    \sum_1^n|aF(x_j)+bG(x_j)-aF(x_{j-1})-bG(x_{j-1})|\le\sum_1^n(a|F(x_j)-F(x_{j-1})|+b|F(x_j)-F(x_{j-1})|)
+    $$
+    therefore $T_{aF+bG}(x)\le aT_F(x)+bT_G(x)$, the rest is obvious.
+    \par (c) Since $F$ is differentiable on $\mathbb{R}$ and $F'$ is bounded, by the mean value theorem,
+    $$
+    \sum^n_1|F(x_j)-F(x_{j-1})|=\sum^1_n |F'(c_j)||x_j-x_{j-1}|\le|M||b-a|
+    $$
+    therefore the variation on $[a,b]$ is bounded.
+    \par (d) $\sin x\in BV([a,b])$ by $(c)$. To see $\sin x\not\in BV$, just take $x_j=-\pi/2+2\pi j$.
+    \par (e) Just take $x_j=1/(\pi/2+2\pi j)$.
+\end{proof}
+\paragraph*{Exercise 30}
+Construct an increasing function on $\mathbb{R}$ whose set of discontinuities is $\mathbb{Q}$.
+\begin{proof}
+    Enumerate rational numbers $\mathbb{Q}=\{q_i\}$. Define $f:=\sum_i2^{-i}\chi_{(q_i,\infty)}$. Obviously $f(x)\le f(y)$ if $x\le y$. Suppose $\epsilon>0$ and take $N$ such that $2^{-N}<\epsilon$. There exists $\delta>0$ such that $(x-\delta,x)\cup(x+\delta)$ does not contain $q_1,\cdots,q_N$. If $y\in(x-\delta,x)$, then
+    $$
+    f(x)\ge f(y)=f(x)-\sum_{y\le q_i<x}2^{-i}\ge f(x)-\epsilon
+    $$
+    therefore $f$ is left continuous. If $y\in(x,x+\delta)$ then
+    $$
+    f(x)\le f(y)=f(x)+\sum_{x\le q_i<y}2^{-i}
+    $$
+    if $x\not\in\mathbb{Q}$, by the same argument $f$ is right continuous. If $x\in\mathbb{Q}$, say $x=q_n$, then
+    $$
+    f(x)+2^{-n}\le f(y)<f(x)+2^{n}+\epsilon
+    $$
+    which is not continuous.
+\end{proof}
